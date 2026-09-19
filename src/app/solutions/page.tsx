@@ -20,7 +20,7 @@ const solutionImages = {
   "solar-energy": siteImages.rooftopSolarCrew,
   "battery-storage": siteImages.driveProtectionDetail,
   "critical-power": siteImages.siteDriveInstall,
-  "electrical-infrastructure": siteImages.distributionBoardClosed,
+  "electrical-infrastructure": siteImages.transformerInspectionDetail,
   "solar-water-pumping": siteImages.cablingThroughPit,
 } as const;
 
@@ -56,7 +56,16 @@ export default function SolutionsHubPage() {
                     description={solution.intro}
                     eyebrow={solution.headline}
                     cta="Explore solution"
-                    imageHeightClassName="h-48 sm:h-52"
+                    imageHeightClassName={
+                      slug === "electrical-infrastructure"
+                        ? "h-64 sm:h-72"
+                        : "h-48 sm:h-52"
+                    }
+                    imageClassName={
+                      slug === "electrical-infrastructure"
+                        ? "object-cover object-[center_12%]"
+                        : undefined
+                    }
                   />
                 </li>
               );

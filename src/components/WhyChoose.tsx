@@ -15,29 +15,27 @@ export function SafetySection() {
       className="safe-px section-y scroll-mt-20"
       aria-labelledby="safety-highlight-heading"
     >
-      <div className="mx-auto grid max-w-6xl overflow-hidden rounded-2xl lg:grid-cols-2">
-        <div className="bg-accent relative min-h-[18rem] text-white lg:min-h-full">
+      <div className="border-border mx-auto grid max-w-6xl overflow-hidden rounded-2xl border lg:grid-cols-2">
+        <div className="relative min-h-[24rem] sm:min-h-[32rem]">
           <Image
-            src={siteImages.distributionBoardOpen.src}
-            alt={siteImages.distributionBoardOpen.alt}
+            src={siteImages.transformerInspection.src}
+            alt={siteImages.transformerInspection.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover opacity-35"
+            className="object-cover object-[center_12%]"
           />
-          <div className="relative flex h-full flex-col justify-end p-8 sm:p-10">
-            <p className="font-display text-xs font-semibold tracking-[0.18em] text-teal-100 uppercase">
-              Safety & compliance
-            </p>
-            <h2
-              id="safety-highlight-heading"
-              className="font-display mt-3 text-[clamp(1.6rem,3.5vw,2.2rem)] font-bold tracking-tight text-balance"
-            >
-              Identify risks. Verify performance.
-            </h2>
-          </div>
         </div>
-        <div className="border-border bg-bg-elevated border p-8 sm:p-10 lg:border-l-0">
-          <p className="text-muted text-[clamp(0.98rem,2.1vw,1.1rem)] leading-relaxed text-pretty">
+        <div className="bg-bg-elevated flex flex-col justify-center p-8 sm:p-10">
+          <p className="font-display text-accent text-xs font-semibold tracking-[0.18em] uppercase">
+            Safety & compliance
+          </p>
+          <h2
+            id="safety-highlight-heading"
+            className="font-display text-ink mt-3 text-[clamp(1.6rem,3.5vw,2.2rem)] font-bold tracking-tight text-balance"
+          >
+            Identify risks. Verify performance.
+          </h2>
+          <p className="text-muted mt-4 text-[clamp(0.98rem,2.1vw,1.1rem)] leading-relaxed text-pretty">
             Identify electrical risks, improve system safety and verify that
             installations perform as intended — including testing and
             inspection, earthing, lightning protection, surge protection and
@@ -45,7 +43,7 @@ export function SafetySection() {
           </p>
           <Button
             href="/services/electrical-safety-compliance"
-            className="mt-6"
+            className="mt-6 w-fit"
           >
             Explore safety & compliance
           </Button>

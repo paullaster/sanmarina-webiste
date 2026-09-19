@@ -65,40 +65,72 @@ export const brandLogo = {
 
 export const siteImages = {
   rooftopSolarCrew: {
-    src: "/images/rooftop-solar-crew.jpg",
+    src: "/images/edited/solar%20installation%20work.png",
     alt: "SM Solar & Electrical crew installing a commercial rooftop solar array in Kenya",
   },
   westernFresh: {
-    src: "/images/western-fresh-industries.jpg",
+    src: "/images/edited/wefi%2011kw%20panel%20installations.png",
     alt: "Western Fresh Industries facility in Kisumu with rooftop solar array",
   },
+  westernFreshPanels: {
+    src: "/images/edited/wefi%2011kw%20panel%20installations%202.png",
+    alt: "Second view of the Western Fresh Industries rooftop solar installation",
+  },
+  westernFreshOffgrid: {
+    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power.png",
+    alt: "11 kW off-grid solar inverter and protection at Western Fresh Industries",
+  },
+  westernFreshOffgridWide: {
+    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power%202.png",
+    alt: "Installed off-grid solar power equipment at Western Fresh Industries",
+  },
   distributionBoardOpen: {
-    src: "/images/distribution-board-open.jpg",
+    src: "/images/edited/zawadi%20meter%20box%20inside.png",
     alt: "Open electrical distribution board showing busbars, meters and circuit protection",
   },
   distributionBoardWiring: {
-    src: "/images/distribution-board-wiring.jpg",
+    src: "/images/edited/zawadi%20meter%20box%20inside.png",
     alt: "Interior of a commissioned distribution board with organised power wiring",
   },
   distributionBoardDetail: {
-    src: "/images/distribution-board-detail.jpg",
+    src: "/images/edited/zawadi%20meter%20box%20inside.png",
     alt: "Detail of an open multi-compartment distribution board",
   },
   distributionBoardClosed: {
-    src: "/images/distribution-board-closed.jpg",
+    src: "/images/edited/Zawadi%20Meter%20Box%20Outside%20view.png",
     alt: "Closed distribution board with status indicator lights after installation",
   },
   siteDriveInstall: {
-    src: "/images/site-drive-install.jpg",
+    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power%202.png",
     alt: "Industrial drive and protection equipment installed on site",
   },
   driveProtectionDetail: {
-    src: "/images/drive-protection-detail.jpg",
+    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power.png",
     alt: "Close view of installed drive controller and protection enclosure",
   },
   cablingThroughPit: {
-    src: "/images/cabling-through-pit.jpg",
-    alt: "Power and control cabling routed through an underground pit",
+    src: "/images/edited/1mw%20solar%20cables.png",
+    alt: "Solar power cabling routed through an underground pit",
+  },
+  zawadiApartmentBuilding: {
+    src: "/images/edited/zawadi%20apartment%20building.png",
+    alt: "Zawadi Apartments residential building in Kisumu",
+  },
+  zawadiMeterBoxOutside: {
+    src: "/images/edited/Zawadi%20Meter%20Box%20Outside%20view.png",
+    alt: "Closed meter distribution board at Zawadi Apartments",
+  },
+  zawadiMeterBoxInside: {
+    src: "/images/edited/zawadi%20meter%20box%20inside.png",
+    alt: "Open meter distribution board at Zawadi Apartments",
+  },
+  transformerInspection: {
+    src: "/images/Transformer%20Inspection.png",
+    alt: "Technician inspecting an outdoor power transformer and distribution enclosure",
+  },
+  transformerInspectionDetail: {
+    src: "/images/edited/Transformer%20Insepction%202.png",
+    alt: "Inspection of transformer terminals, cooling fins and nameplate",
   },
 } as const;
 
@@ -291,7 +323,8 @@ export const homeSolutions = [
     meta: "Design · Installation · Commissioning",
     href: "/solutions/electrical-infrastructure",
     cta: "Explore electrical services",
-    image: siteImages.distributionBoardClosed,
+    image: siteImages.transformerInspectionDetail,
+    imageClassName: "object-cover object-[center_12%]",
   },
   {
     id: "electrical-safety",
@@ -301,7 +334,8 @@ export const homeSolutions = [
     meta: "Testing · Earthing · Surge · Lightning · Inspection",
     href: "/services/electrical-safety-compliance",
     cta: "Explore safety & compliance",
-    image: siteImages.distributionBoardOpen,
+    image: siteImages.transformerInspection,
+    imageClassName: "object-cover object-[center_12%]",
   },
   {
     id: "consultancy",
@@ -347,8 +381,9 @@ export const featuredProjects = [
     image: siteImages.westernFresh,
     gallery: [
       siteImages.westernFresh,
-      siteImages.rooftopSolarCrew,
-      siteImages.distributionBoardWiring,
+      siteImages.westernFreshPanels,
+      siteImages.westernFreshOffgrid,
+      siteImages.westernFreshOffgridWide,
     ],
     featured: true,
   },
@@ -370,7 +405,7 @@ export const featuredProjects = [
     result:
       "Supervised delivery aligned to the project's commercial solar scope.",
     image: siteImages.rooftopSolarCrew,
-    gallery: [siteImages.rooftopSolarCrew, siteImages.westernFresh],
+    gallery: [siteImages.rooftopSolarCrew, siteImages.cablingThroughPit],
     featured: true,
   },
   {
@@ -390,8 +425,12 @@ export const featuredProjects = [
       "San Marina delivered a solar energy solution aligned to the apartment project's requirements.",
     result:
       "A solar energy solution supporting the residential / apartment application in Kisumu.",
-    image: siteImages.rooftopSolarCrew,
-    gallery: [siteImages.rooftopSolarCrew, siteImages.distributionBoardClosed],
+    image: siteImages.zawadiApartmentBuilding,
+    gallery: [
+      siteImages.zawadiApartmentBuilding,
+      siteImages.zawadiMeterBoxOutside,
+      siteImages.zawadiMeterBoxInside,
+    ],
     featured: true,
   },
   {
@@ -553,7 +592,7 @@ export const solutionPages = {
     headline: "Electrical Systems Engineered for Safety and Performance.",
     intro:
       "We provide electrical design, installation, verification and commissioning for homes, apartments, offices, retail premises, hotels, institutions, commercial buildings and industrial facilities.",
-    image: siteImages.distributionBoardClosed,
+    image: siteImages.transformerInspectionDetail,
     sections: [
       {
         title: "Solar + Electrical",
@@ -619,6 +658,7 @@ export const servicePages = {
     title: "Electrical Engineering",
     intro:
       "Electrical design, installation and commissioning for safe, reliable infrastructure.",
+    image: siteImages.transformerInspectionDetail,
     items: [
       "Electrical design",
       "Electrical installation",
@@ -637,6 +677,7 @@ export const servicePages = {
     title: "Electrical Safety & Compliance",
     intro:
       "Identify electrical risks, improve system safety and verify that installations perform as intended.",
+    image: siteImages.transformerInspection,
     items: [
       "Electrical inspection",
       "Electrical testing",

@@ -15,6 +15,7 @@ type BrandMediaCardProps = {
   cta?: string;
   href?: string;
   imageHeightClassName?: string;
+  imageClassName?: string;
   className?: string;
   children?: ReactNode;
 };
@@ -28,6 +29,7 @@ export function BrandMediaCard({
   cta = "Learn more",
   href,
   imageHeightClassName = "h-48 sm:h-56",
+  imageClassName = "object-cover",
   className = "",
   children,
 }: BrandMediaCardProps) {
@@ -39,7 +41,7 @@ export function BrandMediaCard({
           alt={image.alt}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover"
+          className={imageClassName}
         />
         {eyebrow ? (
           <span className="bg-accent absolute top-3 right-3 rounded-full px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-white uppercase">

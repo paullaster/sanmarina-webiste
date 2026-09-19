@@ -61,12 +61,22 @@ export default async function SolutionPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="border-border relative aspect-[4/3] overflow-hidden rounded-2xl border">
+          <div
+            className={`border-border relative overflow-hidden rounded-2xl border ${
+              slug === "electrical-infrastructure"
+                ? "aspect-[3/4]"
+                : "aspect-[4/3]"
+            }`}
+          >
             <Image
               src={solution.image.src}
               alt={solution.image.alt}
               fill
-              className="object-cover"
+              className={
+                slug === "electrical-infrastructure"
+                  ? "object-cover object-[center_12%]"
+                  : "object-cover"
+              }
               sizes="(max-width: 1024px) 100vw, 45vw"
               priority
             />

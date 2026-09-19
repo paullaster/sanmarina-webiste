@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getServiceBySlug, serviceSlugs } from "@/lib/content";
 import { SiteShell } from "@/components/SiteShell";
@@ -18,6 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${service.title} | SM Solar & Electrical`,
     description: service.intro,
     alternates: { canonical: `/services/${slug}` },
+    ...("image" in service
+      ? {
+          openGraph: {
+            images: [{ url: service.image.src, alt: service.image.alt }],
+          },
+        }
+      : {}),
   };
 }
 
@@ -25,6 +33,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
+  const image = "image" in service ? service.image : undefined;
 
   return (
     <SiteShell mainLabel={service.title}>
@@ -40,30 +49,53 @@ export default async function ServiceDetailPage({ params }: Props) {
             {service.intro}
           </p>
 
-          <div className="brand-card mt-10 p-6 sm:p-8">
-            <h2 className="font-display text-ink text-lg font-bold">
-              Scope of work
-            </h2>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2" role="list">
-              {service.items.map((item) => (
-                <li
-                  key={item}
-                  className="text-ink flex gap-2 rounded-lg bg-white/80 px-3 py-2.5 text-sm leading-snug"
-                >
-                  <span aria-hidden="true" className="text-accent">
-                    ✓
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div
+            className={
+              image
+                ? "mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]"
+                : "mt-10"
+            }
+          >
+            {image ? (
+              <figure className="border-border relative aspect-[3/4] overflow-hidden rounded-2xl border">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  priority
+                  className="object-cover object-[center_12%]"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+              </figure>
+            ) : null}
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href="/contact">Talk to an engineer</Button>
-            <Button href="/services" variant="secondary">
-              All services
-            </Button>
+            <div>
+              <div className="brand-card p-6 sm:p-8">
+                <h2 className="font-display text-ink text-lg font-bold">
+                  Scope of work
+                </h2>
+                <ul className="mt-4 grid gap-2 sm:grid-cols-2" role="list">
+                  {service.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-ink flex gap-2 rounded-lg bg-white/80 px-3 py-2.5 text-sm leading-snug"
+                    >
+                      <span aria-hidden="true" className="text-accent">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button href="/contact">Talk to an engineer</Button>
+                <Button href="/services" variant="secondary">
+                  All services
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

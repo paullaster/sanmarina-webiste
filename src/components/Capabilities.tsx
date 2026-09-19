@@ -56,7 +56,10 @@ export function CapabilitiesOverview() {
                 meta={item.meta}
                 eyebrow={String(index + 1).padStart(2, "0")}
                 cta={item.cta}
-                imageHeightClassName="h-44 sm:h-52"
+                imageHeightClassName="h-56 sm:h-64"
+                imageClassName={
+                  "imageClassName" in item ? item.imageClassName : undefined
+                }
               />
             </li>
           ))}
