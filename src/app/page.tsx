@@ -8,23 +8,29 @@ import {
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { FaqSection } from "@/components/FaqSection";
 import { Hero } from "@/components/Hero";
+import { JsonLd } from "@/components/JsonLd";
+import { ServiceAreasPreview } from "@/components/ServiceAreas";
 import { SiteShell } from "@/components/SiteShell";
 import { Industries, SafetySection, WhyChoose } from "@/components/WhyChoose";
 import { Button } from "@/components/Button";
 import { pageSeo } from "@/lib/content";
-import { siteConfig } from "@/lib/seo";
+import { buildHomeJsonLd, buildPageMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: pageSeo.home.title,
+    description: pageSeo.home.description,
+    path: "/",
+  }),
   title: {
     absolute: pageSeo.home.title,
   },
-  description: pageSeo.home.description,
-  alternates: { canonical: "/" },
 };
 
 export default function Home() {
   return (
     <SiteShell>
+      <JsonLd data={buildHomeJsonLd()} />
       <Hero />
       <Approach />
       <CapabilitiesOverview />
@@ -34,6 +40,7 @@ export default function Home() {
       <SafetySection />
       <TrustCredentials />
       <Industries />
+      <ServiceAreasPreview />
       <FaqSection />
 
       <section

@@ -70,9 +70,9 @@ export function WhyChoose() {
             Why SM Solar & Electrical?
           </h2>
           <p id="why-us-intro" className="text-muted mt-3 text-pretty">
-            An engineering company that designs and delivers reliable power
-            systems — solar is one of the technologies we use, not the entire
-            identity.
+            An engineering company and electrical contractor that designs and
+            delivers reliable power systems across Kenya — solar is one of the
+            technologies we use, not the entire identity.
           </p>
         </header>
 

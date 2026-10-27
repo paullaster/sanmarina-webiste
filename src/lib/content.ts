@@ -9,11 +9,11 @@ export const company = {
   supportingTagline: "Building a Sustainable Future.",
   headline: "Engineered Power. Reliable Results.",
   subheadline:
-    "Solar, electrical and critical-power solutions designed around your needs.",
+    "Solar energy solutions, electrical engineering and critical power for homes, businesses and institutions across Kenya.",
   positioning:
     "We design, deliver and support reliable solar, electrical and energy-storage systems for homes, businesses and institutions.",
   blurb:
-    "SM Solar & Electrical is the renewable energy and electrical solutions business of San Marina Engineering Limited. We combine electrical engineering expertise, renewable-energy experience and practical project delivery to provide reliable power solutions for homes, businesses and institutions.",
+    "SM Solar & Electrical is the renewable energy and electrical solutions business of San Marina Engineering Limited. Also known as SM Solar, SM Solar Engineering and San Marina Solar, we are a Kisumu-based solar and engineering company serving Nairobi, Kisumu and towns across Kenya. We combine electrical engineering expertise, renewable-energy experience and practical project delivery to provide reliable power solutions for homes, businesses and institutions.",
   proofLine: "Solar Energy | Critical Power | Electrical Engineering",
   processLine: "Understand · Engineer · Deliver · Support",
   mission:
@@ -150,6 +150,7 @@ export const navLinks: readonly NavItem[] = [
       { href: "/about", label: "Who We Are" },
       { href: "/about#approach", label: "Our Approach" },
       { href: "/about#team", label: "Our Team" },
+      { href: "/service-areas", label: "Where We Work" },
     ],
   },
   {
@@ -390,7 +391,7 @@ export const featuredProjects = [
   {
     id: "tatu-city",
     title: "Tatu City — Solar Project",
-    location: "Kenya",
+    location: "Tatu City, Kiambu, Kenya",
     category: "Large-scale commercial solar",
     sector: "Commercial",
     filter: "commercial" as const,
@@ -732,25 +733,25 @@ export const products = [
   {
     id: "solar-panels",
     title: "Solar Panels",
-    body: "High-quality photovoltaic modules for residential, commercial and institutional applications.",
+    body: "High-quality photovoltaic modules for residential, commercial and institutional applications in Kenya — including Jinko Solar, Trina Solar, JA Solar and LONGi, specified to the project.",
     cta: "Enquire about solar panels",
   },
   {
     id: "inverters",
     title: "Inverters",
-    body: "Inverters for grid-tied, hybrid and off-grid applications.",
+    body: "Grid-tied, hybrid and off-grid inverters from manufacturers such as Deye, Growatt, Solis, Huawei, SRNE, Renergy and TBB Power.",
     cta: "Enquire about inverters",
   },
   {
     id: "batteries",
     title: "Battery Energy Storage",
-    body: "Lithium battery solutions for solar storage, backup power and energy resilience.",
+    body: "Lithium battery solutions for solar storage, backup power and energy resilience, including Dyness and compatible hybrid storage systems.",
     cta: "Enquire about batteries",
   },
   {
     id: "solar-pumps",
     title: "Solar Pumps",
-    body: "Solar pumping equipment and integrated pumping solutions for water supply applications.",
+    body: "Solar pumping equipment and integrated pumping solutions for water supply — including Davis & Shirtliff and related pumping technology.",
     cta: "Enquire about solar pumps",
   },
   {
@@ -762,7 +763,7 @@ export const products = [
   {
     id: "protection",
     title: "Electrical Protection & Balance of System",
-    body: "DC and AC protection, surge protection, isolators, distribution equipment, cables, connectors, earthing equipment and electrical accessories.",
+    body: "DC and AC protection, surge protection, isolators, distribution equipment, cables, connectors, earthing equipment and electrical accessories from brands such as Suntree and LEADER.",
     cta: "Enquire about protection equipment",
   },
 ] as const;
@@ -772,99 +773,143 @@ export const technologyPartners = [
   {
     id: "jinko",
     name: "Jinko",
+    fullName: "Jinko Solar",
+    category: "solar panels",
     logo: "/images/partners/jinko.webp",
   },
   {
     id: "trina",
     name: "Trina",
+    fullName: "Trina Solar",
+    category: "solar panels",
     logo: "/images/partners/trina.webp",
   },
   {
     id: "ja",
     name: "JA",
+    fullName: "JA Solar",
+    category: "solar panels",
     logo: "/images/partners/ja.webp",
   },
   {
     id: "longi",
     name: "Longi",
+    fullName: "LONGi Solar",
+    category: "solar panels",
     logo: "/images/partners/longi.webp",
   },
   {
     id: "srne",
     name: "SRNE",
+    fullName: "SRNE",
+    category: "inverters",
     logo: "/images/partners/srne.webp",
   },
   {
     id: "solis",
     name: "Solis",
+    fullName: "Solis",
+    category: "inverters",
     logo: "/images/partners/solis.webp",
   },
   {
     id: "deye",
     name: "Deye",
+    fullName: "Deye",
+    category: "hybrid inverters",
     logo: "/images/partners/deye.webp",
   },
   {
     id: "growatt",
     name: "Growatt",
+    fullName: "Growatt",
+    category: "inverters",
     logo: "/images/partners/growatt.webp",
   },
   {
     id: "renergy",
     name: "Renergy",
+    fullName: "Renergy",
+    category: "inverters",
     logo: "/images/partners/renergy.webp",
   },
   {
     id: "huawei",
     name: "Huawei",
+    fullName: "Huawei",
+    category: "inverters",
     logo: "/images/partners/huawei.webp",
   },
   {
     id: "tbb-power",
     name: "TBB Power",
+    fullName: "TBB Power",
+    category: "inverters",
     logo: "/images/partners/tbb-power.webp",
   },
   {
     id: "dyness",
     name: "Dyness",
+    fullName: "Dyness",
+    category: "battery storage",
     logo: "/images/partners/dyness.webp",
   },
   {
     id: "davis-and-shirtliff",
     name: "Davis & Shirtliff",
+    fullName: "Davis & Shirtliff",
+    category: "solar pumping",
     logo: "/images/partners/davis-and-shirtliff.webp",
   },
   {
     id: "maqbul",
     name: "MAQBUL",
+    fullName: "MAQBUL",
+    category: "solar equipment",
     logo: "/images/partners/maqbul.webp",
   },
   {
     id: "veichi",
     name: "Veichi",
+    fullName: "Veichi",
+    category: "drives",
     logo: "/images/partners/veichi.webp",
   },
   {
     id: "megasun",
     name: "Megasun",
+    fullName: "Megasun",
+    category: "solar water heating",
     logo: "/images/partners/megasun.webp",
   },
   {
     id: "aquaheat",
     name: "AquaHeat",
+    fullName: "AquaHeat",
+    category: "solar water heating",
     logo: "/images/partners/aquaheat.webp",
   },
   {
     id: "suntree",
     name: "Suntree",
+    fullName: "Suntree",
+    category: "electrical protection",
     logo: "/images/partners/suntree.webp",
   },
   {
     id: "leader",
     name: "LEADER",
+    fullName: "LEADER",
+    category: "electrical protection",
     logo: "/images/partners/leader.webp",
   },
 ] as const;
+
+export const partnerBrandNames = technologyPartners.map(
+  (partner) => partner.fullName,
+);
+
+export const partnerBrandLine = partnerBrandNames.join(", ");
 
 export const solarPackages = [
   {
@@ -1042,6 +1087,118 @@ export const industryList = [
   "Water Utilities",
 ] as const;
 
+export const brandAliases = [
+  "SM Solar & Electrical",
+  "SM Solar",
+  "SM Solar Ltd",
+  "SM Solar LTD",
+  "SM Solar Engineering",
+  "SM Solar and Electrical",
+  "SM Engineering",
+  "SM Engineering Limited",
+  "San Marina Engineering",
+  "San Marina Engineering Limited",
+  "San Marina Solar",
+  "San Marina",
+  "San Marina Engineering Kenya",
+] as const;
+
+export const serviceRegions = [
+  {
+    region: "Nyanza",
+    towns: [
+      "Kisumu",
+      "Kisii",
+      "Homa Bay",
+      "Siaya",
+      "Migori",
+      "Nyamira",
+      "Bondo",
+      "Oyugis",
+    ],
+  },
+  {
+    region: "Western Kenya",
+    towns: ["Kakamega", "Bungoma", "Busia", "Vihiga", "Webuye", "Mumias"],
+  },
+  {
+    region: "Rift Valley",
+    towns: [
+      "Nakuru",
+      "Eldoret",
+      "Kericho",
+      "Kitale",
+      "Naivasha",
+      "Narok",
+      "Bomet",
+      "Nanyuki",
+    ],
+  },
+  {
+    region: "Nairobi & Central",
+    towns: [
+      "Nairobi",
+      "Thika",
+      "Kiambu",
+      "Machakos",
+      "Nyeri",
+      "Embu",
+      "Murang'a",
+      "Kajiado",
+    ],
+  },
+  {
+    region: "Coast",
+    towns: ["Mombasa", "Malindi", "Kilifi", "Mtwapa", "Diani"],
+  },
+  {
+    region: "Eastern & North",
+    towns: ["Meru", "Kitui", "Garissa", "Isiolo"],
+  },
+] as const;
+
+export const kenyanServiceTowns = [
+  "Kisumu",
+  "Nairobi",
+  "Mombasa",
+  "Nakuru",
+  "Eldoret",
+  "Kakamega",
+  "Kisii",
+  "Homa Bay",
+  "Siaya",
+  "Migori",
+  "Nyamira",
+  "Bondo",
+  "Oyugis",
+  "Bungoma",
+  "Busia",
+  "Vihiga",
+  "Webuye",
+  "Mumias",
+  "Kericho",
+  "Kitale",
+  "Naivasha",
+  "Narok",
+  "Bomet",
+  "Nanyuki",
+  "Thika",
+  "Kiambu",
+  "Machakos",
+  "Nyeri",
+  "Embu",
+  "Murang'a",
+  "Kajiado",
+  "Malindi",
+  "Kilifi",
+  "Mtwapa",
+  "Diani",
+  "Meru",
+  "Kitui",
+  "Garissa",
+  "Isiolo",
+] as const;
+
 export const contactProjectTypes = [
   "Residential Solar",
   "Commercial Solar",
@@ -1056,74 +1213,79 @@ export const contactProjectTypes = [
 
 export const pageSeo = {
   home: {
-    title: "SM Solar & Electrical | Solar & Electrical Engineering Kenya",
+    title: "SM Solar & Electrical | Solar & Engineering Company Kenya",
     description:
-      "Solar, battery storage, critical power and electrical engineering solutions for homes, businesses and institutions in Kenya.",
+      "SM Solar & Electrical (San Marina Engineering Limited) is a solar and engineering company in Kisumu. Solar energy solutions, electrical contracting and critical power across Nairobi, Kisumu and Kenya.",
   },
   about: {
-    title: "About SM Solar & Electrical | Engineering Energy Solutions",
+    title: "About San Marina Engineering | SM Solar Kenya",
     description:
-      "Learn about SM Solar & Electrical, an engineering-led solar, electrical and critical-power solutions company serving homes, businesses and institutions.",
+      "San Marina Engineering Limited, trading as SM Solar & Electrical, is a Kisumu-based solar, electrical and engineering company serving Nairobi and towns across Kenya.",
   },
   solutions: {
     title: "Solar & Energy Solutions Kenya | SM Solar & Electrical",
     description:
-      "Explore solar PV, battery storage, critical power, electrical infrastructure and solar water-pumping solutions from SM Solar & Electrical.",
+      "Solar PV, battery storage, critical power, electrical infrastructure and solar water pumping from SM Solar & Electrical — a solar and engineering company in Kenya.",
   },
   "solar-energy": {
-    title: "Solar Energy Solutions Kenya | SM Solar & Electrical",
+    title: "Solar Energy Solutions Kenya | SM Solar Company",
     description:
-      "Professionally engineered residential, commercial, hybrid, grid-tied and off-grid solar systems in Kenya.",
+      "Residential, commercial, hybrid, grid-tied and off-grid solar systems from SM Solar & Electrical in Kisumu, Nairobi and across Kenya.",
   },
   "battery-storage": {
     title: "Battery Energy Storage Kenya | SM Solar & Electrical",
     description:
-      "Battery energy storage solutions for solar, backup power, energy resilience and critical loads in Kenya.",
+      "Battery energy storage for solar, backup power, energy resilience and critical loads — specified and installed in Kenya by SM Solar & Electrical.",
   },
   "critical-power": {
     title: "Critical Power Solutions Kenya | UPS & Battery Backup",
     description:
-      "UPS, battery storage, standby power, voltage management and critical-power solutions for businesses and institutions.",
+      "UPS, battery storage, standby power and voltage management for businesses and institutions in Nairobi, Kisumu and Kenya.",
   },
   "electrical-infrastructure": {
-    title: "Electrical Infrastructure Kenya | SM Solar & Electrical",
+    title: "Electrical Contractor Kenya | Engineering Company Nairobi & Kisumu",
     description:
-      "Electrical design, installation, verification and commissioning for homes, commercial buildings and institutions in Kenya.",
+      "Electrical design, installation, verification and commissioning for homes, commercial buildings and institutions — electrical contractor and engineering company in Kenya.",
   },
   "solar-water-pumping": {
     title: "Solar Water Pumping Kenya | SM Solar & Electrical",
     description:
-      "Solar-powered water pumping systems for domestic, agricultural, institutional and commercial applications in Kenya.",
+      "Solar-powered water pumping for domestic, agricultural, institutional and commercial applications across Kenya.",
   },
   services: {
-    title: "Solar & Electrical Engineering Services Kenya",
+    title: "Engineering Company Kenya | Solar & Electrical Services",
     description:
-      "Solar engineering, electrical installation, testing, compliance, maintenance and renewable-energy consultancy services.",
+      "Solar engineering, electrical installation, testing, compliance, maintenance and consultancy from San Marina Engineering Limited — SM Solar Kenya.",
   },
   projects: {
     title: "Solar & Electrical Projects Kenya | SM Solar & Electrical",
     description:
-      "Explore selected solar, electrical, battery and energy projects delivered by SM Solar & Electrical in Kenya.",
+      "Selected solar, electrical, battery and energy projects delivered by SM Solar & Electrical in Kisumu, Nairobi, Migori and across Kenya.",
   },
   products: {
-    title: "Solar Panels, Inverters & Batteries Kenya",
+    title: "Solar Equipment Kenya | Panels, Inverters & Batteries",
     description:
-      "Quality solar panels, hybrid inverters, lithium batteries, solar pumps, mounting systems and electrical protection equipment.",
+      "Solar equipment in Kenya: Jinko, Trina, JA Solar, LONGi, Deye, Growatt, Dyness and more — specified by SM Solar & Electrical for engineered systems.",
   },
   packages: {
     title: "Solar Packages Kenya | 5kW & 10kW Hybrid Solar Systems",
     description:
-      "Explore practical residential solar packages including 5kW and 10kW hybrid solar solutions from SM Solar & Electrical.",
+      "Residential hybrid solar packages in Kenya — 5kW and 10kW starting points from SM Solar & Electrical in Kisumu.",
   },
   insights: {
     title: "Solar & Electrical Engineering Insights Kenya",
     description:
-      "Practical guides on solar systems, battery storage, electrical safety, energy efficiency and critical power.",
+      "Practical guides on solar systems, battery storage, electrical safety and energy solutions from SM Solar & Electrical, Kenya.",
   },
   contact: {
-    title: "Contact SM Solar & Electrical | Kisumu, Kenya",
+    title: "Contact SM Solar & Electrical | Kisumu, Nairobi & Kenya",
     description:
-      "Contact SM Solar & Electrical in Kisumu for solar, battery storage, electrical engineering, critical power and energy consultancy.",
+      "Contact SM Solar & Electrical in Kisumu for solar, electrical engineering, critical power and energy consultancy across Nairobi and Kenya.",
+  },
+  "service-areas": {
+    title: "Solar & Engineering Companies in Kenya | Where We Work",
+    description:
+      "SM Solar & Electrical serves Kisumu, Nairobi, Mombasa, Nakuru, Eldoret and towns across Kenya with solar energy solutions, electrical contracting and engineering.",
   },
 } as const;
 

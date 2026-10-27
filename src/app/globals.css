@@ -144,42 +144,6 @@
   .group:hover .brand-card-cta span[data-arrow] {
     transform: translateX(3px);
   }
-
-  .partner-marquee {
-    overflow: hidden;
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      #000 5%,
-      #000 95%,
-      transparent
-    );
-  }
-
-  .partner-marquee-track {
-    display: flex;
-    width: max-content;
-    animation: partner-marquee 55s linear infinite;
-  }
-
-  .partner-marquee:hover .partner-marquee-track {
-    animation-play-state: paused;
-  }
-
-  .partner-marquee-group {
-    display: flex;
-    align-items: stretch;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    padding-inline-end: 0.75rem;
-    gap: 0.75rem;
-  }
-
-  .partner-marquee-logo {
-    flex: 0 0 auto;
-    width: 10.5rem;
-  }
 }
 
 @keyframes fade-up {
@@ -194,13 +158,64 @@
   }
 }
 
+.partner-marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+.partner-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: partner-marquee 50s linear infinite;
+}
+
+.partner-marquee:hover .partner-marquee-track,
+.partner-marquee:focus-within .partner-marquee-track {
+  animation-play-state: paused;
+}
+
+.partner-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-inline-end: 0.75rem;
+  gap: 0.75rem;
+}
+
+.partner-marquee-logo {
+  flex: 0 0 auto;
+  width: 10.5rem;
+}
+
+.partner-marquee img,
+.partner-logo-grid img {
+  max-width: none;
+  width: auto;
+  height: 2.25rem;
+}
+
+.partner-logo-grid {
+  display: none;
+}
+
 @keyframes partner-marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -210,18 +225,16 @@
   }
 
   .animate-fade,
-  .animate-fade-delay,
-  .partner-marquee-track {
+  .animate-fade-delay {
     animation: none !important;
   }
 
   .partner-marquee {
-    overflow-x: auto;
-    mask-image: none;
+    display: none;
   }
 
-  .partner-marquee-track {
-    transform: none !important;
+  .partner-logo-grid {
+    display: grid;
   }
 
   .brand-card,

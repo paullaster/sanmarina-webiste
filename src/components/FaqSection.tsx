@@ -20,8 +20,9 @@ export function FaqSection() {
             Questions customers ask before they call
           </h2>
           <p id="faq-intro" className="text-muted mt-3 text-pretty">
-            Clear answers about solar installation in Kisumu and Kenya,
-            assessments, hybrid systems, and what happens after handover.
+            Clear answers about SM Solar and San Marina Engineering, solar
+            installation in Kisumu, Nairobi and Kenya, equipment brands, and
+            what happens after handover.
           </p>
         </header>
 

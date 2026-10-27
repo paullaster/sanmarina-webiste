@@ -1,18 +1,34 @@
 import type { Metadata } from "next";
 import { pageSeo, solarPackages } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+const breadcrumbs = [
+  { name: "Solar packages", path: "/solar-packages" },
+] as const;
+
+export const metadata: Metadata = buildPageMetadata({
   title: pageSeo.packages.title,
   description: pageSeo.packages.description,
-  alternates: { canonical: "/solar-packages" },
-};
+  path: "/solar-packages",
+});
 
 export default function SolarPackagesPage() {
   return (
     <SiteShell mainLabel="Solar packages">
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: pageSeo.packages.title,
+          description: pageSeo.packages.description,
+          path: "/solar-packages",
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto max-w-6xl">
           <header className="max-w-2xl">
@@ -23,8 +39,9 @@ export default function SolarPackagesPage() {
               Residential hybrid starting points
             </h1>
             <p className="text-muted mt-3 text-pretty">
-              Practical configurations for homes — still engineering-led. Final
-              system selection always follows a site and load assessment.
+              Practical hybrid solar configurations for homes in Kenya — still
+              engineering-led. Final system selection always follows a site and
+              load assessment in Kisumu, Nairobi or your town.
             </p>
           </header>
 

@@ -29,7 +29,7 @@ export function Hero() {
       <div className="safe-px relative mx-auto grid max-w-6xl items-stretch lg:min-h-[min(88vh,900px)] lg:grid-cols-2">
         <div className="animate-fade flex flex-col justify-center py-16 sm:py-24 lg:py-28 lg:pr-10">
           <p className="font-display lg:text-accent text-[0.7rem] font-semibold tracking-[0.2em] text-teal-100/90 uppercase sm:text-xs">
-            {company.publicName}
+            {company.publicName} · Solar & Engineering Company, Kenya
           </p>
           <h1
             id="hero-heading"
@@ -41,12 +41,11 @@ export function Hero() {
             {company.subheadline}
           </p>
           <p className="lg:text-muted mt-4 max-w-xl text-sm leading-relaxed text-pretty text-white/75">
-            At SM Solar & Electrical, we combine engineering expertise, quality
-            equipment and professional installation to deliver reliable power
-            solutions for homes, businesses and institutions. From solar PV and
-            battery storage to electrical installations, critical power and
-            energy consultancy, we engineer solutions around how you actually
-            use power.
+            SM Solar & Electrical is the solar and electrical engineering
+            business of San Marina Engineering Limited. From Kisumu we design
+            and install solar energy solutions, electrical works and critical
+            power for homes, businesses and institutions in Nairobi, Kisumu and
+            towns across Kenya.
           </p>
           <div
             className="xs:flex-row xs:flex-wrap mt-8 flex flex-col gap-3"

@@ -6,15 +6,19 @@ import {
   siteImages,
 } from "@/lib/content";
 import { BrandMediaCard } from "@/components/BrandMediaCard";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
-import { siteConfig } from "@/lib/seo";
+import { buildPageMetadata, buildWebPageJsonLd, siteConfig } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const breadcrumbs = [{ name: "Solutions", path: "/solutions" }] as const;
+
+export const metadata: Metadata = buildPageMetadata({
   title: pageSeo.solutions.title,
   description: pageSeo.solutions.description,
-  alternates: { canonical: "/solutions" },
-};
+  path: "/solutions",
+});
 
 const solutionImages = {
   "solar-energy": siteImages.rooftopSolarCrew,
@@ -27,6 +31,15 @@ const solutionImages = {
 export default function SolutionsHubPage() {
   return (
     <SiteShell mainLabel="Energy solutions">
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: pageSeo.solutions.title,
+          description: pageSeo.solutions.description,
+          path: "/solutions",
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto max-w-6xl">
           <header className="max-w-3xl">
@@ -39,8 +52,10 @@ export default function SolutionsHubPage() {
             <p className="text-muted mt-4 text-pretty">
               Different buildings have different energy requirements. A home,
               hotel, factory, office, apartment block and institution cannot all
-              be solved with the same system. We assess the application first,
-              then engineer the solution.
+              be solved with the same system. SM Solar & Electrical assesses the
+              application first, then engineers solar energy solutions, battery
+              storage, critical power and electrical infrastructure for sites in
+              Nairobi, Kisumu and across Kenya.
             </p>
           </header>
 

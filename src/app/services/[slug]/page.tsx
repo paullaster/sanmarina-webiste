@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getServiceBySlug, serviceSlugs } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import {
+  buildPageMetadata,
+  buildServiceJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,18 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
-  return {
+  const image =
+    "image" in service
+      ? { url: service.image.src, alt: service.image.alt }
+      : undefined;
+  return buildPageMetadata({
     title: `${service.title} | SM Solar & Electrical`,
     description: service.intro,
-    alternates: { canonical: `/services/${slug}` },
-    ...("image" in service
-      ? {
-          openGraph: {
-            images: [{ url: service.image.src, alt: service.image.alt }],
-          },
-        }
-      : {}),
-  };
+    path: `/services/${slug}`,
+    image,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
@@ -34,9 +39,29 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
   const image = "image" in service ? service.image : undefined;
+  const breadcrumbs = [
+    { name: "Services", path: "/services" },
+    { name: service.title, path: `/services/${slug}` },
+  ];
 
   return (
     <SiteShell mainLabel={service.title}>
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: `${service.title} | SM Solar & Electrical`,
+          description: service.intro,
+          path: `/services/${slug}`,
+          breadcrumbs,
+          extra: [
+            buildServiceJsonLd({
+              name: service.title,
+              description: service.intro,
+              path: `/services/${slug}`,
+            }),
+          ],
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto max-w-6xl">
           <p className="font-display text-accent text-xs font-semibold tracking-[0.18em] uppercase">

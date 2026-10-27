@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getInsightBody, getInsightBySlug, insights } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import {
+  buildArticleJsonLd,
+  buildPageMetadata,
+  buildWebPageJsonLd,
+} from "@/lib/seo";
 import Link from "next/link";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -15,11 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const insight = getInsightBySlug(slug);
   if (!insight) return {};
-  return {
+  return buildPageMetadata({
     title: `${insight.title} | SM Solar & Electrical`,
     description: insight.summary,
-    alternates: { canonical: `/insights/${insight.id}` },
-  };
+    path: `/insights/${insight.id}`,
+    type: "article",
+  });
 }
 
 export default async function InsightArticlePage({ params }: Props) {
@@ -27,9 +35,29 @@ export default async function InsightArticlePage({ params }: Props) {
   const insight = getInsightBySlug(slug);
   if (!insight) notFound();
   const body = getInsightBody(slug);
+  const breadcrumbs = [
+    { name: "Insights", path: "/insights" },
+    { name: insight.title, path: `/insights/${insight.id}` },
+  ];
 
   return (
     <SiteShell mainLabel={insight.title}>
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: `${insight.title} | SM Solar & Electrical`,
+          description: insight.summary,
+          path: `/insights/${insight.id}`,
+          breadcrumbs,
+          extra: [
+            buildArticleJsonLd({
+              title: insight.title,
+              description: insight.summary,
+              path: `/insights/${insight.id}`,
+            }),
+          ],
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <article className="safe-px section-y">
         <div className="mx-auto max-w-3xl">
           <p className="font-display text-accent text-xs font-semibold tracking-[0.18em] uppercase">

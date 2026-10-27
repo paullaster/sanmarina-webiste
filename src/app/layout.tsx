@@ -17,7 +17,7 @@ const sora = Sora({
   display: "swap",
 });
 
-const title = "SM Solar & Electrical | Solar & Electrical Engineering Kenya";
+const title = "SM Solar & Electrical | Solar & Engineering Company Kenya";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -51,7 +51,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "/",
     languages: {
       "en-KE": "/",
       en: "/",
@@ -84,7 +83,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — solar and electrical engineering in Kisumu, Kenya`,
+        alt: `${siteConfig.shortName} — solar company and engineering contractor in Kenya`,
         type: "image/png",
       },
     ],
@@ -98,7 +97,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — solar and electrical engineering in Kisumu, Kenya`,
+        alt: `${siteConfig.shortName} — solar company and engineering contractor in Kenya`,
       },
     ],
   },

@@ -2,23 +2,37 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   aboutApproachSteps,
+  brandAliases,
   company,
   pageSeo,
   siteImages,
 } from "@/lib/content";
-import { siteConfig } from "@/lib/seo";
+import { buildPageMetadata, buildWebPageJsonLd, siteConfig } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
 
-export const metadata: Metadata = {
+const breadcrumbs = [{ name: "About", path: "/about" }] as const;
+
+export const metadata: Metadata = buildPageMetadata({
   title: pageSeo.about.title,
   description: pageSeo.about.description,
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <SiteShell mainLabel="About SM Solar & Electrical">
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: pageSeo.about.title,
+          description: pageSeo.about.description,
+          path: "/about",
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
           <div>
@@ -26,7 +40,7 @@ export default function AboutPage() {
               About SM Solar & Electrical
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Engineering energy solutions with purpose
+              Engineering company and solar company in Kenya
             </h1>
             <p className="text-muted mt-4 text-[clamp(1rem,2.2vw,1.125rem)] leading-relaxed text-pretty">
               {company.blurb}
@@ -34,11 +48,20 @@ export default function AboutPage() {
             <p className="text-muted mt-4 text-sm leading-relaxed text-pretty">
               Our work spans solar PV, battery energy storage, critical power,
               building electrical systems, electrical safety and compliance,
-              renewable-energy consultancy and operations and maintenance.
+              renewable-energy consultancy and operations and maintenance —
+              delivered as an engineering contractor, not a box-moving solar
+              shop.
             </p>
-            <Button href="/contact" className="mt-8">
-              Work with us
-            </Button>
+            <p className="text-muted mt-4 text-sm leading-relaxed text-pretty">
+              You may also know us as {brandAliases.slice(0, 6).join(", ")} and
+              San Marina Solar. One legal entity: {company.name}.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href="/contact">Work with us</Button>
+              <Button href="/service-areas" variant="secondary">
+                Where we work in Kenya
+              </Button>
+            </div>
           </div>
           <div className="border-border relative aspect-[4/3] overflow-hidden rounded-2xl border">
             <Image

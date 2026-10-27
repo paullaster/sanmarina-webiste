@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getSolutionBySlug, pageSeo, solutionSlugs } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import {
+  buildPageMetadata,
+  buildServiceJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -24,20 +31,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const solution = getSolutionBySlug(slug);
   const seo = seoBySlug[slug];
   if (!solution) return {};
-  return {
+  return buildPageMetadata({
     title: seo?.title ?? `${solution.title} | SM Solar & Electrical`,
     description: seo?.description ?? solution.intro,
-    alternates: { canonical: `/solutions/${slug}` },
-  };
+    path: `/solutions/${slug}`,
+    image: { url: solution.image.src, alt: solution.image.alt },
+  });
 }
 
 export default async function SolutionPage({ params }: Props) {
   const { slug } = await params;
   const solution = getSolutionBySlug(slug);
   if (!solution) notFound();
+  const seo = seoBySlug[slug];
+  const title = seo?.title ?? `${solution.title} | SM Solar & Electrical`;
+  const description = seo?.description ?? solution.intro;
+  const breadcrumbs = [
+    { name: "Solutions", path: "/solutions" },
+    { name: solution.title, path: `/solutions/${slug}` },
+  ];
 
   return (
     <SiteShell mainLabel={`${solution.title} solutions`}>
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title,
+          description,
+          path: `/solutions/${slug}`,
+          breadcrumbs,
+          extra: [
+            buildServiceJsonLd({
+              name: solution.title,
+              description,
+              path: `/solutions/${slug}`,
+            }),
+          ],
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
           <div>

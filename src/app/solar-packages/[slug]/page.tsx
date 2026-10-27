@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPackageBySlug, solarPackages } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -14,20 +17,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pkg = getPackageBySlug(slug);
   if (!pkg) return {};
-  return {
+  return buildPageMetadata({
     title: `${pkg.name} ${pkg.capacity} | SM Solar & Electrical`,
     description: pkg.summary,
-    alternates: { canonical: `/solar-packages/${pkg.id}` },
-  };
+    path: `/solar-packages/${pkg.id}`,
+  });
 }
 
 export default async function SolarPackageDetailPage({ params }: Props) {
   const { slug } = await params;
   const pkg = getPackageBySlug(slug);
   if (!pkg) notFound();
+  const breadcrumbs = [
+    { name: "Solar packages", path: "/solar-packages" },
+    { name: pkg.name, path: `/solar-packages/${pkg.id}` },
+  ];
 
   return (
     <SiteShell mainLabel={`${pkg.name} solar package`}>
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: `${pkg.name} ${pkg.capacity} | SM Solar & Electrical`,
+          description: pkg.summary,
+          path: `/solar-packages/${pkg.id}`,
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto max-w-3xl">
           <p className="font-display text-accent text-xs font-semibold tracking-[0.18em] uppercase">

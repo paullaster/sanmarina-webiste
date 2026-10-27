@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { featuredProjects, getProjectBySlug } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,25 +18,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
-  return {
+  return buildPageMetadata({
     title: `${project.title} | San Marina Projects`,
     description: project.summary,
-    alternates: { canonical: `/projects/${project.id}` },
-    openGraph: {
-      title: project.title,
-      description: project.summary,
-      images: [{ url: project.image.src, alt: project.image.alt }],
-    },
-  };
+    path: `/projects/${project.id}`,
+    image: { url: project.image.src, alt: project.image.alt },
+  });
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
+  const breadcrumbs = [
+    { name: "Projects", path: "/projects" },
+    { name: project.title, path: `/projects/${project.id}` },
+  ];
 
   return (
     <SiteShell mainLabel={`${project.title} project case study`}>
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: `${project.title} | San Marina Projects`,
+          description: project.summary,
+          path: `/projects/${project.id}`,
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <article>
         <header className="relative min-h-[min(52vh,520px)] overflow-hidden">
           <Image

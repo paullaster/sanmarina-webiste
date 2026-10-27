@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { insights, pageSeo } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const breadcrumbs = [{ name: "Insights", path: "/insights" }] as const;
+
+export const metadata: Metadata = buildPageMetadata({
   title: pageSeo.insights.title,
   description: pageSeo.insights.description,
-  alternates: { canonical: "/insights" },
-};
+  path: "/insights",
+});
 
 const categories = [
   "Solar",
@@ -21,6 +26,15 @@ const categories = [
 export default function InsightsPage() {
   return (
     <SiteShell mainLabel="Insights">
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: pageSeo.insights.title,
+          description: pageSeo.insights.description,
+          path: "/insights",
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto max-w-6xl">
           <header className="max-w-3xl">
@@ -32,7 +46,8 @@ export default function InsightsPage() {
             </h1>
             <p className="text-muted mt-4 text-pretty">
               Technical articles on solar systems, battery storage, electrical
-              safety, commercial energy and engineering practice.
+              safety, commercial energy and engineering practice — written for
+              homeowners and businesses choosing energy solutions in Kenya.
             </p>
           </header>
 

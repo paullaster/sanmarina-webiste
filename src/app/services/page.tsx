@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
 import { pageSeo, servicePages, serviceSlugs } from "@/lib/content";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
-import { siteConfig } from "@/lib/seo";
+import { buildPageMetadata, buildWebPageJsonLd, siteConfig } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+const breadcrumbs = [{ name: "Services", path: "/services" }] as const;
+
+export const metadata: Metadata = buildPageMetadata({
   title: pageSeo.services.title,
   description: pageSeo.services.description,
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 export default function ServicesHubPage() {
   return (
     <SiteShell mainLabel="Engineering services">
+      <JsonLd
+        data={buildWebPageJsonLd({
+          title: pageSeo.services.title,
+          description: pageSeo.services.description,
+          path: "/services",
+          breadcrumbs,
+        })}
+      />
+      <Breadcrumbs items={breadcrumbs} />
       <section className="safe-px section-y">
         <div className="mx-auto max-w-6xl">
           <header className="max-w-3xl">
@@ -21,11 +34,12 @@ export default function ServicesHubPage() {
               Services
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Our services
+              Engineering company services in Kenya
             </h1>
             <p className="text-muted mt-4 text-pretty">
-              From assessment to commissioning and long-term support. We provide
-              engineering services across the energy and electrical lifecycle.
+              From assessment to commissioning and long-term support. San Marina
+              Engineering Limited provides solar engineering, electrical
+              contracting, safety, maintenance and consultancy across Kenya.
             </p>
           </header>
 

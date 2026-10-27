@@ -172,6 +172,11 @@ export function SiteFooter() {
             >
               {footerCapabilityLine}
             </p>
+            <p className="text-muted mt-3 text-xs leading-relaxed text-pretty">
+              Also known as SM Solar, SM Solar Ltd, SM Solar Engineering, SM
+              Engineering and San Marina Solar. Solar and engineering company
+              serving Nairobi, Kisumu and Kenya.
+            </p>
           </div>
 
           <div>
@@ -190,6 +195,14 @@ export function SiteFooter() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href="/service-areas"
+                    className="text-muted hover:text-accent focus-visible:outline-accent inline-flex min-h-9 items-center text-sm underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  >
+                    Where we work
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
