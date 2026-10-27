@@ -26,15 +26,15 @@ export function CapabilitiesOverview() {
             id="solutions-heading"
             className="font-display text-ink mt-3 text-[clamp(1.55rem,3.5vw,2.15rem)] font-bold tracking-tight text-balance"
           >
-            Energy solutions designed around your needs
+            Solar solutions, critical power and electrical engineering
           </h2>
           <p
             id="solutions-intro"
             className="text-muted mt-3 text-[clamp(0.95rem,2.2vw,1.05rem)] text-pretty"
           >
-            Solar, critical power, electrical engineering, safety and
-            consultancy — presented as clear paths for homes, businesses and
-            institutions.
+            Solar energy solutions, critical power, electrical engineering,
+            electrical safety and consultancy — for homes, businesses and
+            institutions in Kenya.
           </p>
         </header>
 
@@ -86,7 +86,7 @@ export function Approach() {
             id="approach-heading"
             className="font-display text-ink mt-3 text-[clamp(1.55rem,3.5vw,2.15rem)] font-bold tracking-tight text-balance"
           >
-            Power that is engineered for you
+            Power systems engineered for your site
           </h2>
           <div
             id="approach-intro"
@@ -169,7 +169,7 @@ export function TechnologyTrust() {
             id="technology-heading"
             className="font-display text-ink mt-3 text-[clamp(1.45rem,3.2vw,1.95rem)] font-bold tracking-tight text-balance"
           >
-            Established solar equipment, selected for the application
+            Solar equipment brands we specify in Kenya
           </h2>
           <p className="text-muted mt-3 text-pretty">
             SM Solar & Electrical specifies and installs solar equipment from

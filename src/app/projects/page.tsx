@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               Projects
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Engineering you can see.
+              Solar and electrical engineering projects in Kenya
             </h1>
             <p className="text-muted mt-3 text-pretty">
               Our projects bring together engineering design, quality solar

@@ -1,13 +1,19 @@
 {
-  "name": "SM Solar & Electrical",
-  "short_name": "SM Solar",
-  "description": "SM Solar & Electrical (San Marina Engineering Limited) — solar company and engineering contractor for homes, businesses and institutions in Kenya.",
+  "name": "San Marina Engineering Limited",
+  "short_name": "SM Engineering",
+  "description": "San Marina Engineering Limited (SM Engineering, SM Solar, SM Solar & Electrical) — solar company and engineering contractor for homes, businesses and institutions in Kenya.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f7f4",
   "theme_color": "#004126",
   "lang": "en-KE",
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/favicon-32.png",
       "sizes": "32x32",
@@ -25,6 +31,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/apple-touch-icon.png",

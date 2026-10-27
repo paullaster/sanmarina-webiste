@@ -4,7 +4,12 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
-import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
+import {
+  buildPackageOfferJsonLd,
+  buildPageMetadata,
+  buildWebPageJsonLd,
+  siteConfig,
+} from "@/lib/seo";
 import Link from "next/link";
 
 const breadcrumbs = [
@@ -26,6 +31,7 @@ export default function SolarPackagesPage() {
           description: pageSeo.packages.description,
           path: "/solar-packages",
           breadcrumbs,
+          extra: solarPackages.map((pkg) => buildPackageOfferJsonLd(pkg)),
         })}
       />
       <Breadcrumbs items={breadcrumbs} />
@@ -36,7 +42,7 @@ export default function SolarPackagesPage() {
               Solar packages
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Residential hybrid starting points
+              Solar packages in Kenya — 5 kW and 10 kW hybrid systems
             </h1>
             <p className="text-muted mt-3 text-pretty">
               Practical hybrid solar configurations for homes in Kenya — still
@@ -100,6 +106,16 @@ export default function SolarPackagesPage() {
               </li>
             ))}
           </ul>
+          <p className="text-muted mt-10 text-sm">
+            Questions about a package? Call{" "}
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="text-accent font-semibold underline-offset-4 hover:underline"
+            >
+              {siteConfig.phoneDisplay}
+            </a>{" "}
+            or WhatsApp SM Engineering.
+          </p>
         </div>
       </section>
     </SiteShell>

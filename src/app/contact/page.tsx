@@ -33,12 +33,12 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.6rem)] font-bold tracking-tight text-balance">
-            Let&apos;s discuss your power needs
+            Contact SM Engineering for solar and power in Kenya
           </h1>
           <p className="text-muted mt-3 max-w-2xl text-pretty">
-            Based in Kisumu, SM Solar & Electrical supports solar, electrical
-            and engineering projects in Nairobi and towns across Kenya. Have a
-            quick question? Call or WhatsApp an engineer on{" "}
+            Based in Kisumu, SM Engineering supports solar, electrical and
+            engineering projects in Nairobi and towns across Kenya. Have a quick
+            question? Call or WhatsApp an engineer on{" "}
             <a
               className="text-accent font-semibold underline-offset-2 hover:underline"
               href={`tel:${siteConfig.phone}`}

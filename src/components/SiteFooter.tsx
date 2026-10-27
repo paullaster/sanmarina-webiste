@@ -34,7 +34,7 @@ export function ContactSection() {
             id="contact-heading"
             className="font-display text-ink mt-3 text-[clamp(1.5rem,3.2vw,2rem)] font-bold tracking-tight text-balance"
           >
-            Talk to an engineer.
+            Talk to SM Engineering about solar and power in Kenya
           </h2>
           <p
             id="contact-intro"
@@ -161,7 +161,7 @@ export function SiteFooter() {
               className="font-display text-ink mt-4 text-base font-semibold"
               itemProp="name"
             >
-              {company.publicName}
+              San Marina Engineering Limited
             </h2>
             <p className="font-display text-accent mt-1 text-sm font-semibold">
               {company.tagline}
@@ -173,9 +173,11 @@ export function SiteFooter() {
               {footerCapabilityLine}
             </p>
             <p className="text-muted mt-3 text-xs leading-relaxed text-pretty">
-              Also known as SM Solar, SM Solar Ltd, SM Solar Engineering, SM
-              Engineering and San Marina Solar. Solar and engineering company
-              serving Nairobi, Kisumu and Kenya.
+              San Marina Engineering Limited — also known as San Marina, SM, SM
+              Engineering, SM Solar, SM Solar Ltd, SM Solar Engineering and San
+              Marina Solar. Solar companies in Kenya, solar solutions and
+              engineering contractors serving Nairobi, Kisumu and towns
+              nationwide.
             </p>
           </div>
 
@@ -221,8 +223,16 @@ export function SiteFooter() {
                 <a
                   href={`tel:${siteConfig.phone}`}
                   className="hover:text-accent underline-offset-2 hover:underline"
+                  itemProp="telephone"
                 >
                   {siteConfig.phoneDisplay}
+                </a>
+                <br />
+                <a
+                  href={`tel:${siteConfig.phoneAlt}`}
+                  className="hover:text-accent underline-offset-2 hover:underline"
+                >
+                  {siteConfig.phoneAltDisplay}
                 </a>
               </p>
               <p>

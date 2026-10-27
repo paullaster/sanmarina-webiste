@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import {
+  brandLogo,
   featuredProjects,
   insights,
   serviceSlugs,
@@ -15,7 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const imageUrls = [
     absoluteUrl("/og.png"),
-    absoluteUrl("/brand/sm-solar-electrical.webp"),
+    absoluteUrl("/og-square.png"),
+    absoluteUrl("/twitter-image.png"),
+    absoluteUrl(brandLogo.src),
+    absoluteUrl(brandLogo.png),
     ...Object.values(siteImages).map((image) => absoluteUrl(image.src)),
   ];
 

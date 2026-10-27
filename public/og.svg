@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="ogTitle ogDesc">
-  <title id="ogTitle">San Marina Engineering Limited</title>
-  <desc id="ogDesc">Engineering Reliable Power. Building a Sustainable Future.</desc>
-  <rect width="1200" height="630" fill="#f3f5f7"/>
-  <rect x="0" y="0" width="12" height="630" fill="#0c5f5f"/>
-  <rect x="72" y="72" width="1056" height="486" fill="#ffffff" stroke="#cfd6de" stroke-width="2"/>
-  <text x="120" y="230" font-family="Sora, Manrope, Arial, sans-serif" font-size="52" font-weight="700" fill="#1a2330">San Marina Engineering Limited</text>
-  <text x="120" y="300" font-family="Sora, Manrope, Arial, sans-serif" font-size="30" font-weight="600" fill="#0c5f5f">Engineering Reliable Power.</text>
-  <text x="120" y="348" font-family="Sora, Manrope, Arial, sans-serif" font-size="30" font-weight="600" fill="#0c5f5f">Building a Sustainable Future.</text>
-  <text x="120" y="440" font-family="Manrope, Arial, sans-serif" font-size="22" fill="#4d5b6b">Solar · Critical Power · Building Electrical · Safety · O&amp;M</text>
+  <title id="ogTitle">SM Solar &amp; Electrical</title>
+  <desc id="ogDesc">Engineered Power. Reliable Results. Solar and electrical engineering in Kenya.</desc>
+  <rect width="1200" height="630" fill="#004126"/>
+  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="#c5d4c9" stroke-width="1"/>
+  <rect x="72" y="72" width="520" height="268" fill="#ffffff"/>
+  <text x="72" y="410" font-family="Sora, Lato, Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff">Solar &amp; Electrical Engineering Â· Kenya</text>
+  <text x="72" y="458" font-family="Sora, Lato, Arial, sans-serif" font-size="26" font-weight="600" fill="#fe9a01">Engineered Power. Reliable Results.</text>
+  <text x="72" y="556" font-family="Manrope, Lato, Arial, sans-serif" font-size="16" font-weight="700" fill="#dce8e0">SM Solar &amp; Electrical Â· San Marina Engineering Limited</text>
 </svg>

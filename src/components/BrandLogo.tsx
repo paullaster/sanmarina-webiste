@@ -9,18 +9,18 @@ type BrandLogoProps = {
 
 const sizeMap = {
   header: {
-    width: 168,
-    height: 81,
-    className: "!h-12 !w-auto sm:!h-14",
+    width: 170,
+    height: 100,
+    className: "!h-14 !w-auto sm:!h-16",
   },
   footer: {
     width: 220,
-    height: 106,
-    className: "!h-16 !w-auto sm:!h-[4.5rem]",
+    height: 130,
+    className: "!h-16 !w-auto sm:!h-[4.75rem]",
   },
   inline: {
     width: 140,
-    height: 67,
+    height: 82,
     className: "!h-11 !w-auto",
   },
 } as const;

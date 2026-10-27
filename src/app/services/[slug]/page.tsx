@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getServiceBySlug, serviceSlugs } from "@/lib/content";
+import { getServiceBySlug, pageSeo, serviceSlugs } from "@/lib/content";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
@@ -26,9 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "image" in service
       ? { url: service.image.src, alt: service.image.alt }
       : undefined;
+  const seo = pageSeo[slug as keyof typeof pageSeo];
   return buildPageMetadata({
-    title: `${service.title} | SM Solar & Electrical`,
-    description: service.intro,
+    title: seo?.title ?? `${service.title} in Kenya | SM Engineering`,
+    description: seo?.description ?? service.intro,
     path: `/services/${slug}`,
     image,
   });
@@ -39,6 +40,9 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
   const image = "image" in service ? service.image : undefined;
+  const seo = pageSeo[slug as keyof typeof pageSeo];
+  const title = seo?.title ?? `${service.title} in Kenya | SM Engineering`;
+  const description = seo?.description ?? service.intro;
   const breadcrumbs = [
     { name: "Services", path: "/services" },
     { name: service.title, path: `/services/${slug}` },
@@ -48,8 +52,8 @@ export default async function ServiceDetailPage({ params }: Props) {
     <SiteShell mainLabel={service.title}>
       <JsonLd
         data={buildWebPageJsonLd({
-          title: `${service.title} | SM Solar & Electrical`,
-          description: service.intro,
+          title,
+          description,
           path: `/services/${slug}`,
           breadcrumbs,
           extra: [
@@ -68,7 +72,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             Services
           </p>
           <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-            {service.title}
+            {service.title} in Kenya
           </h1>
           <p className="text-muted mt-4 max-w-3xl text-[clamp(1rem,2.2vw,1.125rem)] leading-relaxed text-pretty">
             {service.intro}

@@ -1,13 +1,43 @@
 import type { Metadata } from "next";
 import {
   brandAliases,
+  brandLogo,
   featuredProjects,
   kenyanServiceTowns,
   partnerBrandNames,
   siteImages,
   socialLinks,
+  solarPackages,
   technologyPartners,
+  topicKeywords,
 } from "@/lib/content";
+import { faqItems } from "@/lib/faq";
+
+export { faqItems };
+
+export const ogImageAlt =
+  "San Marina Engineering — SM Engineering, SM Solar & Electrical, solar company in Kenya";
+
+export function brandedSocialImages(alt = ogImageAlt) {
+  return [
+    {
+      url: "/og.png",
+      secureUrl: absoluteUrl("/og.png"),
+      width: 1200,
+      height: 630,
+      alt,
+      type: "image/png",
+    },
+    {
+      url: "/og-square.png",
+      secureUrl: absoluteUrl("/og-square.png"),
+      width: 1200,
+      height: 1200,
+      alt,
+      type: "image/png",
+    },
+  ];
+}
 
 export const siteConfig = {
   name: "San Marina Engineering Limited",
@@ -25,9 +55,9 @@ export const siteConfig = {
   whatsapp: "254717411822",
   tagline: "Engineered Power. Reliable Results.",
   description:
-    "Solar company and engineering contractor in Kenya: solar energy solutions, electrical engineering, critical power and solar equipment for homes, businesses and institutions.",
+    "San Marina Engineering Limited — SM, SM Engineering, SM Solar and San Marina Solar. Solar company and engineering contractor in Kenya: solar energy solutions, electrical engineering, critical power and power systems.",
   longDescription:
-    "SM Solar & Electrical is the renewable energy and electrical solutions business of San Marina Engineering Limited. Based in Kisumu, we design, deliver and support solar PV, battery energy storage, critical power, building electrical systems, electrical safety and compliance, solar water pumping, consultancy and maintenance for homes, businesses and institutions in Nairobi, Kisumu and towns across Kenya.",
+    "San Marina Engineering Limited (San Marina, SM, SM Engineering, SM Solar, SM Solar & Electrical, San Marina Solar) is a Kisumu-based solar company and engineering contractor. We design, deliver and support solar PV, solar technology, solar solutions, battery energy storage, critical power, UPS, building electrical systems, electrical safety and compliance, solar water pumping, engineering consultancy and operations and maintenance for homes, businesses and institutions in Nairobi, Kisumu and towns across Kenya.",
   foundingLocation: "Kisumu, Kenya",
   address: {
     streetAddress:
@@ -67,10 +97,23 @@ export const siteConfig = {
     "SM Solar Ltd",
     "SM Solar LTD",
     "SM Solar Engineering",
-    "SM Engineering",
+    "San Marina",
     "San Marina Engineering",
     "San Marina Engineering Limited",
     "San Marina Solar",
+    "San Marina Electrical",
+    "San Marina Kenya",
+    "San Marina Kisumu",
+    "Sanmarina",
+    "SM",
+    "SM Kenya",
+    "SM Kisumu",
+    "SM Engineering",
+    "SM Engineering Kenya",
+    "SM Solar",
+    "SM Solar Kenya",
+    "SM Solar Electrical",
+    "SM Electrical",
     "San Marina Engineering Kenya",
     "solar",
     "energy",
@@ -122,6 +165,18 @@ export const siteConfig = {
     "earthing and surge protection",
     "lightning protection Kenya",
     "solar maintenance Kenya",
+    "solar technology",
+    "solar technology Kenya",
+    "solar solutions",
+    "solar solutions Kenya",
+    "engineering",
+    "engineering solutions",
+    "engineering solutions Kenya",
+    "engineering contractors",
+    "engineering contractors Kenya",
+    "SM Engineering Kenya",
+    "SM Engineering Kisumu",
+    "SM Engineering Nairobi",
     "Jinko solar Kenya",
     "Trina Solar Kenya",
     "JA Solar Kenya",
@@ -130,8 +185,14 @@ export const siteConfig = {
     "Growatt Kenya",
     "Dyness battery Kenya",
     "Davis and Shirtliff solar",
+    "power Kenya",
+    "power systems Kenya",
+    "engineered power Kenya",
+    ...topicKeywords,
     ...kenyanServiceTowns.map((town) => `solar companies in ${town}`),
     ...kenyanServiceTowns.map((town) => `engineering companies in ${town}`),
+    ...kenyanServiceTowns.map((town) => `solar solutions in ${town}`),
+    ...kenyanServiceTowns.map((town) => `electrical contractor in ${town}`),
   ],
   services: [
     {
@@ -176,58 +237,15 @@ export const siteConfig = {
         "Preventive and corrective maintenance for solar, batteries and electrical systems.",
       url: "/services/maintenance",
     },
+    {
+      id: "consultancy",
+      name: "Engineering & Consultancy",
+      description:
+        "Renewable-energy feasibility, electrical engineering consultancy, specifications, BOQs and project supervision.",
+      url: "/services/consultancy",
+    },
   ],
 } as const;
-
-export const faqItems = [
-  {
-    question:
-      "Does SM Solar & Electrical install solar in Kisumu, Nairobi and across Kenya?",
-    answer:
-      "Yes. SM Solar & Electrical is based in Kisumu and delivers solar PV, hybrid systems, electrical works and maintenance for homes, businesses and institutions in Nairobi, Kisumu, Mombasa, Nakuru, Eldoret and towns across Kenya.",
-  },
-  {
-    question: "Is SM Solar the same company as San Marina Engineering?",
-    answer:
-      "Yes. SM Solar & Electrical is the renewable energy and electrical solutions business of San Marina Engineering Limited. People also search for us as SM Solar, SM Solar Ltd, SM Solar Engineering, SM Engineering and San Marina Solar.",
-  },
-  {
-    question:
-      "Are you a solar company, an engineering company or a contractor?",
-    answer:
-      "All three, by design. San Marina Engineering Limited is an engineering company and electrical contractor. SM Solar & Electrical is our solar and energy-solutions practice — solar equipment, installation, electrical infrastructure and construction-related power works.",
-  },
-  {
-    question: "What is included in a site assessment?",
-    answer:
-      "A site assessment reviews your electricity use, roof or ground space, existing electrical setup and goals. We then recommend a practical system size and next steps — with no obligation to buy immediately.",
-  },
-  {
-    question: "Do you offer hybrid solar systems with batteries?",
-    answer:
-      "Yes. We design and install hybrid solar systems with lithium battery storage so you can use solar by day and keep essential loads running during outages.",
-  },
-  {
-    question: "Can you handle commercial and industrial solar projects?",
-    answer:
-      "Yes. We deliver commercial rooftop solar and electrical works for businesses and industrial sites, including projects such as Western Fresh Industries in Kisumu and supervised works at Tatu City.",
-  },
-  {
-    question:
-      "Do you supply Jinko, Trina, JA Solar, LONGi, Deye, Growatt and other solar brands?",
-    answer: `Yes. We specify solar equipment according to the project. Brands we work with include ${partnerBrandNames.join(", ")}. SM Solar & Electrical selects equipment for the application — not as a one-brand catalogue.`,
-  },
-  {
-    question: "Do you provide electrical inspection and safety services?",
-    answer:
-      "Yes. Our electrical safety services include testing, inspection, earthing, surge protection and corrective recommendations so installations remain safer and easier to maintain.",
-  },
-  {
-    question: "What happens after solar installation?",
-    answer:
-      "After commissioning we can provide maintenance, troubleshooting and upgrades. You keep a technical partner who already knows your system.",
-  },
-] as const;
 
 export type BreadcrumbItem = {
   name: string;
@@ -258,11 +276,19 @@ export function buildPageMetadata({
   type = "website",
 }: PageMetadataInput): Metadata {
   const url = absoluteUrl(path);
-  const ogImage = image?.url ?? "/og.png";
-  const ogAlt =
-    image?.alt ??
-    `${siteConfig.shortName} — solar company and engineering contractor in Kenya`;
+  const ogAlt = image?.alt ?? ogImageAlt;
   const mergedKeywords = [...new Set([...siteConfig.keywords, ...keywords])];
+  const images = [
+    ...(image
+      ? [
+          {
+            url: image.url,
+            alt: image.alt,
+          },
+        ]
+      : []),
+    ...brandedSocialImages(),
+  ];
 
   return {
     title: {
@@ -281,19 +307,16 @@ export function buildPageMetadata({
     openGraph: {
       type,
       locale: siteConfig.locale,
+      alternateLocale: ["en_US", "en_GB"],
       url,
       siteName: siteConfig.name,
       title,
       description,
       countryName: "Kenya",
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: ogAlt,
-        },
-      ],
+      emails: [siteConfig.email],
+      phoneNumbers: [siteConfig.phoneDisplay, siteConfig.phoneAltDisplay],
+      ttl: 604800,
+      images,
     },
     twitter: {
       card: "summary_large_image",
@@ -301,7 +324,7 @@ export function buildPageMetadata({
       description,
       images: [
         {
-          url: ogImage,
+          url: image?.url ?? "/twitter-image.png",
           width: 1200,
           height: 630,
           alt: ogAlt,
@@ -331,33 +354,51 @@ function organizationNode() {
     areaServed,
   } = siteConfig;
 
-  const logoUrl = absoluteUrl("/brand/sm-solar-electrical.webp");
+  const logoUrl = absoluteUrl(brandLogo.src);
   const ogImage = absoluteUrl("/og.png");
   const linkedIn = socialLinks.find((item) => item.label === "LinkedIn")?.href;
   const places = uniquePlaces(areaServed);
 
   return {
-    "@type": ["Organization", "LocalBusiness", "Electrician"],
+    "@type": [
+      "Organization",
+      "LocalBusiness",
+      "Electrician",
+      "HomeAndConstructionBusiness",
+    ],
     "@id": `${url}/#organization`,
-    name,
+    name: "San Marina Engineering Limited",
     legalName: siteConfig.legalName,
-    alternateName: [...brandAliases, "San Marina Egnineering"],
+    alternateName: [
+      ...new Set(["SM", "San Marina", ...brandAliases, name, shortName]),
+    ],
     brand: {
       "@type": "Brand",
-      name: brandLine,
-      alternateName: [...brandAliases],
+      name: "SM Engineering",
+      alternateName: [
+        ...new Set(["SM", "SM Solar", "San Marina", ...brandAliases]),
+      ],
     },
     url,
     email,
     telephone: [phone, phoneAlt],
     description: longDescription,
     slogan: tagline,
-    image: [ogImage, absoluteUrl(siteImages.rooftopSolarCrew.src), logoUrl],
+    image: [
+      ogImage,
+      absoluteUrl("/og-square.png"),
+      absoluteUrl(siteImages.rooftopSolarCrew.src),
+      logoUrl,
+      absoluteUrl(brandLogo.png),
+    ],
     logo: {
       "@type": "ImageObject",
       url: logoUrl,
-      width: 250,
-      height: 120,
+      contentUrl: absoluteUrl(brandLogo.png),
+      width: brandLogo.width,
+      height: brandLogo.height,
+      caption: brandLine,
+      representativeOfPage: true,
     },
     address: {
       "@type": "PostalAddress",
@@ -376,19 +417,7 @@ function organizationNode() {
       "@type": "Place",
       name: place,
     })),
-    knowsAbout: [
-      "Solar photovoltaic systems",
-      "Hybrid solar systems",
-      "Battery energy storage",
-      "Critical power and UPS",
-      "Building electrical installation",
-      "Electrical safety and compliance",
-      "Solar water pumping",
-      "Operations and maintenance",
-      "Solar equipment supply",
-      "Electrical contracting",
-      ...partnerBrandNames,
-    ],
+    knowsAbout: [...new Set([...topicKeywords, ...partnerBrandNames])],
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -406,7 +435,32 @@ function organizationNode() {
         areaServed: "KE",
         availableLanguage: ["English", "Swahili"],
       },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: phone,
+        url: `https://wa.me/${siteConfig.whatsapp}`,
+        areaServed: "KE",
+        availableLanguage: ["English", "Swahili"],
+      },
     ],
+    makesOffer: solarPackages.map((pkg) => ({
+      "@type": "Offer",
+      "@id": `${url}/solar-packages/${pkg.id}#offer`,
+      name: `${pkg.name} ${pkg.capacity}`,
+      description: pkg.summary,
+      url: absoluteUrl(`/solar-packages/${pkg.id}`),
+      availability: "https://schema.org/InStock",
+      areaServed: "Kenya",
+      seller: { "@id": `${url}/#organization` },
+      itemOffered: {
+        "@type": "Product",
+        name: `${pkg.name} ${pkg.capacity}`,
+        description: pkg.summary,
+        brand: { "@id": `${url}/#organization` },
+        category: "Hybrid solar system",
+      },
+    })),
     sameAs: linkedIn ? [linkedIn] : [],
     priceRange: "$$",
     currenciesAccepted: "KES",
@@ -414,30 +468,55 @@ function organizationNode() {
       "@type": "Place",
       name: "Kisumu, Kenya",
     },
-    department: {
-      "@type": "Organization",
-      name: shortName,
-      url,
-    },
+    department: [
+      {
+        "@type": "Organization",
+        name: "SM Engineering",
+        alternateName: ["SM", "SM Engineering Limited"],
+        url,
+      },
+      {
+        "@type": "Organization",
+        name: "SM Solar & Electrical",
+        alternateName: ["SM Solar", "SM Solar Ltd", "San Marina Solar"],
+        url,
+      },
+    ],
   };
 }
 
 function websiteNode() {
-  const { url, description, name, brandLine } = siteConfig;
+  const { url, description, name } = siteConfig;
   return {
     "@type": "WebSite",
     "@id": `${url}/#website`,
     url,
-    name: brandLine,
-    alternateName: [...brandAliases, name],
+    name: "San Marina Engineering",
+    alternateName: [
+      ...new Set([
+        "SM",
+        "SM Engineering",
+        "SM Solar",
+        "San Marina",
+        ...brandAliases,
+        name,
+      ]),
+    ],
     description,
     publisher: { "@id": `${url}/#organization` },
     inLanguage: "en-KE",
-    potentialAction: {
-      "@type": "CommunicateAction",
-      name: "Request a site assessment",
-      target: `${url}/contact`,
-    },
+    potentialAction: [
+      {
+        "@type": "CommunicateAction",
+        name: "Request a site assessment",
+        target: `${url}/contact`,
+      },
+      {
+        "@type": "CommunicateAction",
+        name: "Call SM Engineering",
+        target: `tel:${siteConfig.phone}`,
+      },
+    ],
   };
 }
 
@@ -492,6 +571,7 @@ export function buildWebPageJsonLd({
           url: absoluteUrl("/og.png"),
           width: 1200,
           height: 630,
+          caption: ogImageAlt,
         },
       },
       ...(breadcrumbs.length > 0 ? [buildBreadcrumbJsonLd(breadcrumbs)] : []),
@@ -522,6 +602,30 @@ export function buildServiceJsonLd({
       "@type": "Place",
       name: place,
     })),
+  };
+}
+
+export function buildPackageOfferJsonLd(pkg: {
+  id: string;
+  name: string;
+  capacity: string;
+  summary: string;
+}) {
+  return {
+    "@type": "Offer",
+    name: `${pkg.name} ${pkg.capacity}`,
+    description: pkg.summary,
+    url: absoluteUrl(`/solar-packages/${pkg.id}`),
+    availability: "https://schema.org/InStock",
+    areaServed: "Kenya",
+    seller: { "@id": `${siteConfig.url}/#organization` },
+    itemOffered: {
+      "@type": "Product",
+      name: `${pkg.name} ${pkg.capacity}`,
+      description: pkg.summary,
+      brand: { "@id": `${siteConfig.url}/#organization` },
+      category: "Hybrid solar system",
+    },
   };
 }
 
@@ -565,7 +669,7 @@ export function buildHomeJsonLd() {
         "@type": "WebPage",
         "@id": `${url}/#webpage`,
         url,
-        name: "SM Solar & Electrical | Solar & Engineering Company Kenya",
+        name: "San Marina Engineering | SM Engineering | SM Solar Kenya",
         isPartOf: { "@id": `${url}/#website` },
         about: { "@id": `${url}/#organization` },
         description: longDescription,
@@ -575,6 +679,7 @@ export function buildHomeJsonLd() {
           url: ogImage,
           width: 1200,
           height: 630,
+          caption: ogImageAlt,
         },
         significantLink: [
           `${url}/solutions`,
@@ -582,11 +687,22 @@ export function buildHomeJsonLd() {
           `${url}/projects`,
           `${url}/products`,
           `${url}/service-areas`,
+          `${url}/solar-packages`,
           `${url}/contact`,
         ],
         speakable: {
           "@type": "SpeakableSpecification",
-          cssSelector: ["#hero-heading", "#contact-heading"],
+          cssSelector: [
+            "#hero-heading",
+            "#snapshot-heading",
+            "#solutions-heading",
+            "#approach-heading",
+            "#technology-heading",
+            "#projects-heading",
+            "#why-us-heading",
+            "#safety-highlight-heading",
+            "#contact-heading",
+          ],
         },
       },
       {
@@ -666,6 +782,37 @@ export function buildHomeJsonLd() {
           position: index + 1,
           name: partner.fullName,
           description: `${partner.fullName} ${partner.category} specified and installed by SM Solar & Electrical in Kenya`,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}/#packages-list`,
+        name: "SM Engineering solar packages in Kenya",
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        numberOfItems: solarPackages.length,
+        itemListElement: solarPackages.map((pkg, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: `${pkg.name} ${pkg.capacity}`,
+          url: absoluteUrl(`/solar-packages/${pkg.id}`),
+          description: pkg.summary,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}/#sitelinks`,
+        name: "SM Engineering site navigation",
+        itemListElement: [
+          { name: "Solar solutions", url: `${url}/solutions` },
+          { name: "Engineering services", url: `${url}/services` },
+          { name: "Solar packages", url: `${url}/solar-packages` },
+          { name: "Projects", url: `${url}/projects` },
+          { name: "Contact SM Engineering", url: `${url}/contact` },
+        ].map((item, index) => ({
+          "@type": "SiteNavigationElement",
+          position: index + 1,
+          name: item.name,
+          url: item.url,
         })),
       },
       {

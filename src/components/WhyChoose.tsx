@@ -33,13 +33,12 @@ export function SafetySection() {
             id="safety-highlight-heading"
             className="font-display text-ink mt-3 text-[clamp(1.6rem,3.5vw,2.2rem)] font-bold tracking-tight text-balance"
           >
-            Identify risks. Verify performance.
+            Electrical safety and compliance
           </h2>
           <p className="text-muted mt-4 text-[clamp(0.98rem,2.1vw,1.1rem)] leading-relaxed text-pretty">
-            Identify electrical risks, improve system safety and verify that
-            installations perform as intended — including testing and
-            inspection, earthing, lightning protection, surge protection and
-            compliance verification.
+            Electrical testing and inspection, earthing, lightning protection,
+            surge protection and compliance verification — so solar and power
+            installations in Kenya are safer and easier to maintain.
           </p>
           <Button
             href="/services/electrical-safety-compliance"
@@ -67,12 +66,12 @@ export function WhyChoose() {
             id="why-us-heading"
             className="font-display text-ink text-[clamp(1.5rem,3.2vw,2rem)] font-bold tracking-tight text-balance"
           >
-            Why SM Solar & Electrical?
+            Why SM Engineering for solar and electrical work?
           </h2>
           <p id="why-us-intro" className="text-muted mt-3 text-pretty">
             An engineering company and electrical contractor that designs and
-            delivers reliable power systems across Kenya — solar is one of the
-            technologies we use, not the entire identity.
+            delivers reliable power systems across Kenya — solar technology is
+            one of the tools we use, not the entire identity.
           </p>
         </header>
 
@@ -113,11 +112,12 @@ export function Industries() {
             id="industries-heading"
             className="font-display text-ink text-[clamp(1.5rem,3.2vw,2rem)] font-bold tracking-tight text-balance"
           >
-            Built for the places you care about
+            Solar and power solutions by industry
           </h2>
           <p id="industries-intro" className="text-muted mt-3 text-pretty">
-            Different buildings have different energy requirements. We assess
-            the application first, then engineer the solution.
+            Commercial, industrial, hospitality and institutional sites have
+            different energy requirements. We assess the application first, then
+            engineer the solar or electrical solution.
           </p>
         </header>
 

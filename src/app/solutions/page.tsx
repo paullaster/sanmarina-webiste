@@ -47,7 +47,7 @@ export default function SolutionsHubPage() {
               Solutions
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Energy solutions designed around your needs
+              Solar solutions and engineering solutions in Kenya
             </h1>
             <p className="text-muted mt-4 text-pretty">
               Different buildings have different energy requirements. A home,

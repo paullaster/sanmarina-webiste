@@ -5,7 +5,11 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/Button";
-import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
+import {
+  buildPackageOfferJsonLd,
+  buildPageMetadata,
+  buildWebPageJsonLd,
+} from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = getPackageBySlug(slug);
   if (!pkg) return {};
   return buildPageMetadata({
-    title: `${pkg.name} ${pkg.capacity} | SM Solar & Electrical`,
+    title: `${pkg.name} ${pkg.capacity} Kenya | SM Engineering`,
     description: pkg.summary,
     path: `/solar-packages/${pkg.id}`,
   });
@@ -37,10 +41,11 @@ export default async function SolarPackageDetailPage({ params }: Props) {
     <SiteShell mainLabel={`${pkg.name} solar package`}>
       <JsonLd
         data={buildWebPageJsonLd({
-          title: `${pkg.name} ${pkg.capacity} | SM Solar & Electrical`,
+          title: `${pkg.name} ${pkg.capacity} Kenya | SM Engineering`,
           description: pkg.summary,
           path: `/solar-packages/${pkg.id}`,
           breadcrumbs,
+          extra: [buildPackageOfferJsonLd(pkg)],
         })}
       />
       <Breadcrumbs items={breadcrumbs} />

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Sora } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
-import { siteConfig } from "@/lib/seo";
+import { brandedSocialImages, ogImageAlt, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -17,7 +17,7 @@ const sora = Sora({
   display: "swap",
 });
 
-const title = "SM Solar & Electrical | Solar & Engineering Company Kenya";
+const title = "San Marina Engineering | SM Engineering | SM Solar Kenya";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: title,
-    template: `%s | ${siteConfig.shortName}`,
+    template: `%s | San Marina Engineering`,
   },
   description: siteConfig.longDescription,
-  applicationName: siteConfig.shortName,
+  applicationName: "San Marina Engineering",
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
@@ -73,20 +73,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
+    alternateLocale: ["en_US", "en_GB"],
     url: siteConfig.url,
     siteName: siteConfig.name,
     title,
     description: siteConfig.description,
     countryName: "Kenya",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.shortName} — solar company and engineering contractor in Kenya`,
-        type: "image/png",
-      },
-    ],
+    emails: [siteConfig.email],
+    phoneNumbers: [siteConfig.phoneDisplay, siteConfig.phoneAltDisplay],
+    ttl: 604800,
+    images: brandedSocialImages(),
   },
   twitter: {
     card: "summary_large_image",
@@ -94,16 +90,16 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/og.png",
+        url: "/twitter-image.png",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.shortName} — solar company and engineering contractor in Kenya`,
+        alt: ogImageAlt,
       },
     ],
   },
   appleWebApp: {
     capable: true,
-    title: siteConfig.shortName,
+    title: "San Marina Engineering",
     statusBarStyle: "default",
   },
   other: {
@@ -121,17 +117,32 @@ export const metadata: Metadata = {
     "og:region": siteConfig.address.addressRegion,
     "og:country-name": "Kenya",
     "og:street-address": siteConfig.address.streetAddress,
+    "og:image:alt": ogImageAlt,
+    "twitter:image:alt": ogImageAlt,
+    "msapplication-TileColor": "#004126",
+    "msapplication-TileImage": "/mstile-150x150.png",
+    "msapplication-config": "/browserconfig.xml",
+    "apple-mobile-web-app-title": "San Marina",
   },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
+    shortcut: [{ url: "/favicon.ico" }],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "apple-touch-icon-precomposed",
+        url: "/apple-touch-icon-precomposed.png",
+      },
+      { rel: "mask-icon", url: "/safari-pinned-tab.svg" },
     ],
   },
   manifest: "/manifest.webmanifest",
