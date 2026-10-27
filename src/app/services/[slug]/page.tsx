@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             Services
           </p>
           <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-            {service.title} in Kenya
+            {service.title}
           </h1>
           <p className="text-muted mt-4 max-w-3xl text-[clamp(1rem,2.2vw,1.125rem)] leading-relaxed text-pretty">
             {service.intro}

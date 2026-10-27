@@ -33,13 +33,13 @@ export default function ProjectsPage() {
               Projects
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Solar and electrical engineering projects in Kenya
+              Engineering you can see.
             </h1>
             <p className="text-muted mt-3 text-pretty">
-              Our projects bring together engineering design, quality solar
-              equipment, professional installation and practical field
-              experience — from residential solar in Kisumu to commercial energy
-              and electrical infrastructure across Kenya.
+              Our projects bring together engineering design, quality equipment,
+              professional installation and practical field experience — from
+              residential solar to commercial energy and electrical
+              infrastructure.
             </p>
           </header>
 

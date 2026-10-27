@@ -47,15 +47,13 @@ export default function SolutionsHubPage() {
               Solutions
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Solar solutions and engineering solutions in Kenya
+              Energy solutions designed around your needs
             </h1>
             <p className="text-muted mt-4 text-pretty">
               Different buildings have different energy requirements. A home,
               hotel, factory, office, apartment block and institution cannot all
-              be solved with the same system. SM Solar & Electrical assesses the
-              application first, then engineers solar energy solutions, battery
-              storage, critical power and electrical infrastructure for sites in
-              Nairobi, Kisumu and across Kenya.
+              be solved with the same system. We assess the application first,
+              then engineer the solution.
             </p>
           </header>
 

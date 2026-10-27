@@ -20,7 +20,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function ServiceAreasPage() {
   return (
-    <SiteShell mainLabel="Where SM Solar & Electrical works in Kenya">
+    <SiteShell mainLabel="Where we work">
       <JsonLd
         data={buildWebPageJsonLd({
           title: pageSeo["service-areas"].title,
@@ -37,21 +37,12 @@ export default function ServiceAreasPage() {
               Service areas
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Solar companies and engineering companies in Kenya
+              Where we work
             </h1>
             <p className="text-muted mt-4 text-pretty">
-              San Marina Engineering Limited — trading as SM Solar &amp;
-              Electrical — is a Kisumu-based solar company, engineering company
-              and electrical contractor. We design and install solar energy
-              solutions, electrical works and critical power for clients in
-              Nairobi, Kisumu, Mombasa and towns across Kenya.
-            </p>
-            <p className="text-muted mt-3 text-pretty">
-              If you searched for solar companies in Nairobi, engineering
-              companies in Kisumu, solar companies in Kenya or an engineering
-              contractor near you, this is the coverage we actually deliver:
-              national project work from a Kisumu office, not a catalogue of
-              empty location pages.
+              We are based in Kisumu and undertake projects across Kenya.
+              Contact us with your location and we will advise on survey,
+              delivery and support.
             </p>
           </header>
 

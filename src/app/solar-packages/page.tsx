@@ -8,7 +8,6 @@ import {
   buildPackageOfferJsonLd,
   buildPageMetadata,
   buildWebPageJsonLd,
-  siteConfig,
 } from "@/lib/seo";
 import Link from "next/link";
 
@@ -42,12 +41,11 @@ export default function SolarPackagesPage() {
               Solar packages
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Solar packages in Kenya — 5 kW and 10 kW hybrid systems
+              Residential hybrid starting points
             </h1>
             <p className="text-muted mt-3 text-pretty">
-              Practical hybrid solar configurations for homes in Kenya — still
-              engineering-led. Final system selection always follows a site and
-              load assessment in Kisumu, Nairobi or your town.
+              Practical configurations for homes — still engineering-led. Final
+              system selection always follows a site and load assessment.
             </p>
           </header>
 
@@ -106,16 +104,6 @@ export default function SolarPackagesPage() {
               </li>
             ))}
           </ul>
-          <p className="text-muted mt-10 text-sm">
-            Questions about a package? Call{" "}
-            <a
-              href={`tel:${siteConfig.phone}`}
-              className="text-accent font-semibold underline-offset-4 hover:underline"
-            >
-              {siteConfig.phoneDisplay}
-            </a>{" "}
-            or WhatsApp SM Engineering.
-          </p>
         </div>
       </section>
     </SiteShell>

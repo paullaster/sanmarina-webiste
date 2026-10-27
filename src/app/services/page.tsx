@@ -34,12 +34,11 @@ export default function ServicesHubPage() {
               Services
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Engineering company services in Kenya
+              Our services
             </h1>
             <p className="text-muted mt-4 text-pretty">
-              From assessment to commissioning and long-term support. San Marina
-              Engineering Limited provides solar engineering, electrical
-              contracting, safety, maintenance and consultancy across Kenya.
+              From assessment to commissioning and long-term support. We provide
+              engineering services across the energy and electrical lifecycle.
             </p>
           </header>
 

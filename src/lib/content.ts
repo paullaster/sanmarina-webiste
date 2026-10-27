@@ -7,13 +7,13 @@ export const company = {
   brandLine: "SM Solar & Electrical",
   tagline: "Engineered Power. Reliable Results.",
   supportingTagline: "Building a Sustainable Future.",
-  headline: "Solar companies and engineering contractors in Kenya",
+  headline: "Engineered Power. Reliable Results.",
   subheadline:
-    "San Marina Engineering — SM Engineering, SM Solar and San Marina Solar: solar technology, solar solutions and electrical engineering for homes, businesses and institutions across Kenya.",
+    "Solar, electrical and critical-power solutions designed around your needs.",
   positioning:
     "We design, deliver and support reliable solar, electrical and energy-storage systems for homes, businesses and institutions.",
   blurb:
-    "San Marina Engineering Limited — searched as San Marina, SM, SM Engineering, SM Solar, SM Solar & Electrical and San Marina Solar — is a Kisumu-based solar and engineering company serving Nairobi, Kisumu and towns across Kenya. SM Solar & Electrical is our renewable energy and electrical solutions practice. We combine electrical engineering expertise, renewable-energy experience and practical project delivery to provide reliable power solutions for homes, businesses and institutions.",
+    "SM Solar & Electrical is the renewable energy and electrical solutions business of San Marina Engineering Limited. We combine electrical engineering expertise, renewable-energy experience and practical project delivery to provide reliable power solutions for homes, businesses and institutions.",
   proofLine: "Solar Energy | Critical Power | Electrical Engineering",
   processLine: "Understand · Engineer · Deliver · Support",
   mission:
@@ -59,7 +59,7 @@ export const company = {
 export const brandLogo = {
   src: "/brand/sm-solar-electrical.webp",
   png: "/brand/sm-solar-electrical.png",
-  alt: "SM Engineering — SM Solar & Electrical, San Marina Engineering Limited Kenya",
+  alt: "SM Solar & Electrical — San Marina Engineering Limited",
   width: 800,
   height: 471,
 } as const;
@@ -67,71 +67,71 @@ export const brandLogo = {
 export const siteImages = {
   rooftopSolarCrew: {
     src: "/images/edited/solar%20installation%20work.png",
-    alt: "SM Engineering crew installing a commercial rooftop solar array in Kenya",
+    alt: "SM Solar & Electrical crew installing a commercial rooftop solar array in Kenya",
   },
   westernFresh: {
     src: "/images/edited/wefi%2011kw%20panel%20installations.png",
-    alt: "SM Engineering rooftop solar installation at Western Fresh Industries, Kisumu",
+    alt: "Western Fresh Industries facility in Kisumu with rooftop solar array",
   },
   westernFreshPanels: {
     src: "/images/edited/wefi%2011kw%20panel%20installations%202.png",
-    alt: "SM Engineering rooftop solar panels at Western Fresh Industries, Kisumu Kenya",
+    alt: "Second view of the Western Fresh Industries rooftop solar installation",
   },
   westernFreshOffgrid: {
     src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power.png",
-    alt: "SM Engineering 11 kW off-grid solar power inverter at Western Fresh Industries, Kisumu",
+    alt: "11 kW off-grid solar inverter and protection at Western Fresh Industries",
   },
   westernFreshOffgridWide: {
     src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power%202.png",
-    alt: "SM Engineering off-grid solar power equipment at Western Fresh Industries, Kisumu Kenya",
+    alt: "Installed off-grid solar power equipment at Western Fresh Industries",
   },
   distributionBoardOpen: {
     src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "SM Engineering electrical distribution board with busbars, meters and circuit protection in Kenya",
+    alt: "Open electrical distribution board showing busbars, meters and circuit protection",
   },
   distributionBoardWiring: {
     src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "SM Engineering commissioned distribution board and power wiring in Kenya",
+    alt: "Interior of a commissioned distribution board with organised power wiring",
   },
   distributionBoardDetail: {
     src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "SM Engineering multi-compartment distribution board for electrical installation in Kenya",
+    alt: "Detail of an open multi-compartment distribution board",
   },
   distributionBoardClosed: {
     src: "/images/edited/Zawadi%20Meter%20Box%20Outside%20view.png",
-    alt: "SM Engineering distribution board after electrical installation in Kenya",
+    alt: "Closed distribution board with status indicator lights after installation",
   },
   siteDriveInstall: {
     src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power%202.png",
-    alt: "SM Engineering industrial drive and electrical protection installed in Kenya",
+    alt: "Industrial drive and protection equipment installed on site",
   },
   driveProtectionDetail: {
     src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power.png",
-    alt: "SM Engineering drive controller and protection enclosure for critical power in Kenya",
+    alt: "Close view of installed drive controller and protection enclosure",
   },
   cablingThroughPit: {
     src: "/images/edited/1mw%20solar%20cables.png",
-    alt: "Solar power cabling for an SM Engineering solar project in Kenya",
+    alt: "Solar power cabling routed through an underground pit",
   },
   zawadiApartmentBuilding: {
     src: "/images/edited/zawadi%20apartment%20building.png",
-    alt: "Zawadi Apartments solar and electrical project by SM Engineering, Kisumu Kenya",
+    alt: "Zawadi Apartments residential building in Kisumu",
   },
   zawadiMeterBoxOutside: {
     src: "/images/edited/Zawadi%20Meter%20Box%20Outside%20view.png",
-    alt: "SM Engineering meter distribution board at Zawadi Apartments, Kisumu Kenya",
+    alt: "Closed meter distribution board at Zawadi Apartments",
   },
   zawadiMeterBoxInside: {
     src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "SM Engineering open meter board at Zawadi Apartments, Kisumu Kenya",
+    alt: "Open meter distribution board at Zawadi Apartments",
   },
   transformerInspection: {
     src: "/images/Transformer%20Inspection.png",
-    alt: "SM Engineering technician inspecting a power transformer for electrical safety and compliance in Kenya",
+    alt: "Technician inspecting an outdoor power transformer and distribution enclosure",
   },
   transformerInspectionDetail: {
     src: "/images/edited/Transformer%20Insepction%202.png",
-    alt: "SM Engineering transformer inspection for electrical safety and compliance in Kenya",
+    alt: "Inspection of transformer terminals, cooling fins and nameplate",
   },
 } as const;
 
@@ -151,7 +151,6 @@ export const navLinks: readonly NavItem[] = [
       { href: "/about", label: "Who We Are" },
       { href: "/about#approach", label: "Our Approach" },
       { href: "/about#team", label: "Our Team" },
-      { href: "/service-areas", label: "Where We Work" },
     ],
   },
   {
@@ -226,9 +225,9 @@ export const navLinks: readonly NavItem[] = [
 ] as const;
 
 export const approachIntro = [
-  "A good power system is more than a collection of solar equipment.",
-  "It needs to be properly assessed, correctly sized, safely installed and engineered to deliver reliable power for years.",
-  "That is why SM Engineering takes an engineering-led approach to every solar, electrical and critical-power project in Kenya.",
+  "A good energy system is more than a collection of equipment.",
+  "It needs to be properly assessed, correctly sized, safely installed and designed to perform reliably for years.",
+  "That is why we take an engineering-led approach to every project.",
 ] as const;
 
 export const approachSteps = [
@@ -276,23 +275,23 @@ export const aboutApproachSteps = [
 export const whyChooseUs = [
   {
     title: "Engineering-led",
-    body: "Solar solutions and electrical engineering in Kenya begin with the technical requirement — not simply selecting a package.",
+    body: "Our solutions begin with understanding the technical requirement—not simply selecting a package.",
   },
   {
     title: "Quality-focused",
-    body: "We specify solar equipment, inverters and batteries based on application, compatibility, performance and lifecycle value.",
+    body: "We specify equipment based on application, compatibility, performance and lifecycle value.",
   },
   {
     title: "Professional delivery",
-    body: "Design, supply, installation, testing and commissioning of solar, power and electrical systems across Kenya.",
+    body: "Our work covers design, supply, installation, testing and commissioning.",
   },
   {
     title: "Safety-first",
-    body: "Electrical safety, protection, earthing, lightning protection, surge protection and compliance are integral to our work.",
+    body: "Electrical safety, protection, earthing and compliance are integral to our work.",
   },
   {
     title: "Long-term support",
-    body: "Operations and maintenance, troubleshooting and upgrades after solar and electrical installation in Kenya.",
+    body: "We support our clients beyond installation through maintenance, troubleshooting and upgrades.",
   },
 ] as const;
 
@@ -392,7 +391,7 @@ export const featuredProjects = [
   {
     id: "tatu-city",
     title: "Tatu City — Solar Project",
-    location: "Tatu City, Kiambu, Kenya",
+    location: "Kenya",
     category: "Large-scale commercial solar",
     sector: "Commercial",
     filter: "commercial" as const,
@@ -506,10 +505,9 @@ export const featuredProjects = [
 export const solutionPages = {
   "solar-energy": {
     title: "Solar Energy",
-    headline:
-      "Solar energy solutions in Kenya — generate more of your own power.",
+    headline: "Generate More of Your Own Power.",
     intro:
-      "SM Engineering solar solutions in Kenya help homes, businesses and institutions reduce grid dependence, manage energy costs and improve power availability with residential, commercial, hybrid, grid-tied and off-grid solar.",
+      "Our solar solutions help customers reduce grid dependence, manage energy costs and improve power availability.",
     image: siteImages.rooftopSolarCrew,
     sections: [
       {
@@ -545,10 +543,9 @@ export const solutionPages = {
   },
   "battery-storage": {
     title: "Battery & Energy Storage",
-    headline:
-      "Battery energy storage in Kenya — store energy and improve resilience.",
+    headline: "Store Energy. Improve Resilience.",
     intro:
-      "Battery energy storage systems from SM Engineering help manage energy use, provide backup power and improve utilisation of solar generation for homes and businesses in Kenya.",
+      "Battery Energy Storage Systems can help manage energy use, provide backup power and improve the utilisation of solar generation.",
     image: siteImages.driveProtectionDetail,
     sections: [
       {
@@ -569,10 +566,9 @@ export const solutionPages = {
   },
   "critical-power": {
     title: "Critical Power",
-    headline:
-      "Critical power solutions in Kenya — keep essential operations running.",
+    headline: "Keep Essential Operations Running.",
     intro:
-      "SM Engineering designs critical power solutions in Kenya using UPS systems, battery energy storage, standby generators, voltage stabilisation and power-quality equipment so businesses and institutions keep essential operations running.",
+      "For businesses and institutions, power interruptions can mean lost productivity, damaged equipment and operational disruption.",
     image: siteImages.siteDriveInstall,
     sections: [
       {
@@ -594,10 +590,9 @@ export const solutionPages = {
   },
   "electrical-infrastructure": {
     title: "Electrical Infrastructure",
-    headline:
-      "Electrical engineering in Kenya — systems engineered for safety and performance.",
+    headline: "Electrical Systems Engineered for Safety and Performance.",
     intro:
-      "SM Engineering provides electrical design, installation, verification and commissioning in Kenya for homes, apartments, offices, retail premises, hotels, institutions, commercial buildings and industrial facilities.",
+      "We provide electrical design, installation, verification and commissioning for homes, apartments, offices, retail premises, hotels, institutions, commercial buildings and industrial facilities.",
     image: siteImages.transformerInspectionDetail,
     sections: [
       {
@@ -619,10 +614,9 @@ export const solutionPages = {
   },
   "solar-water-pumping": {
     title: "Solar Water Pumping",
-    headline:
-      "Solar water pumping in Kenya — solar-powered water where you need it.",
+    headline: "Solar-Powered Water Where You Need It.",
     intro:
-      "SM Engineering designs solar water pumping systems in Kenya around borehole characteristics, water demand, pumping head, storage requirements and available solar resource.",
+      "We design solar pumping systems around borehole characteristics, water demand, pumping head, storage requirements and available solar resource.",
     image: siteImages.cablingThroughPit,
     sections: [
       {
@@ -643,8 +637,7 @@ export const solutionPages = {
 export const servicePages = {
   "solar-engineering": {
     title: "Solar Engineering",
-    intro:
-      "Solar engineering in Kenya from SM Engineering — from site assessment and PV system sizing to installation, testing, commissioning and long-term solar performance.",
+    intro: "From assessment to commissioning and long-term solar performance.",
     items: [
       "Solar resource and site assessment",
       "Energy consumption assessment",
@@ -665,7 +658,7 @@ export const servicePages = {
   "electrical-engineering": {
     title: "Electrical Engineering",
     intro:
-      "Electrical engineering in Kenya from SM Engineering — electrical design, installation, power distribution, switchgear and commissioning for safe, reliable infrastructure.",
+      "Electrical design, installation and commissioning for safe, reliable infrastructure.",
     image: siteImages.transformerInspectionDetail,
     items: [
       "Electrical design",
@@ -684,7 +677,7 @@ export const servicePages = {
   "electrical-safety-compliance": {
     title: "Electrical Safety & Compliance",
     intro:
-      "Electrical safety and compliance in Kenya from SM Engineering — inspection, testing, earthing, lightning protection, surge protection and verification so solar and power installations perform as intended.",
+      "Identify electrical risks, improve system safety and verify that installations perform as intended.",
     image: siteImages.transformerInspection,
     items: [
       "Electrical inspection",
@@ -702,7 +695,7 @@ export const servicePages = {
   maintenance: {
     title: "Operations & Maintenance",
     intro:
-      "Operations and maintenance in Kenya from SM Engineering — preventive and corrective support for solar PV, batteries, inverters and electrical systems throughout their life.",
+      "Preventive and corrective support throughout the life of your energy and electrical systems.",
     items: [
       "Preventive maintenance",
       "Corrective maintenance",
@@ -719,7 +712,7 @@ export const servicePages = {
   consultancy: {
     title: "Renewable Energy & Building Services Consultancy",
     intro:
-      "Engineering and renewable-energy consultancy in Kenya from SM Engineering — feasibility, energy assessments, specifications, bills of quantities, tender documentation and project supervision before you invest.",
+      "Make better technical decisions before you invest — from feasibility to tender and supervision.",
     items: [
       "Renewable-energy feasibility studies",
       "Solar feasibility assessments",
@@ -740,25 +733,25 @@ export const products = [
   {
     id: "solar-panels",
     title: "Solar Panels",
-    body: "High-quality photovoltaic modules for residential, commercial and institutional applications in Kenya — including Jinko Solar, Trina Solar, JA Solar and LONGi, specified to the project.",
+    body: "High-quality photovoltaic modules for residential, commercial and institutional applications.",
     cta: "Enquire about solar panels",
   },
   {
     id: "inverters",
     title: "Inverters",
-    body: "Grid-tied, hybrid and off-grid inverters from manufacturers such as Deye, Growatt, Solis, Huawei, SRNE, Renergy and TBB Power.",
+    body: "Inverters for grid-tied, hybrid and off-grid applications.",
     cta: "Enquire about inverters",
   },
   {
     id: "batteries",
     title: "Battery Energy Storage",
-    body: "Lithium battery solutions for solar storage, backup power and energy resilience, including Dyness and compatible hybrid storage systems.",
+    body: "Lithium battery solutions for solar storage, backup power and energy resilience.",
     cta: "Enquire about batteries",
   },
   {
     id: "solar-pumps",
     title: "Solar Pumps",
-    body: "Solar pumping equipment and integrated pumping solutions for water supply — including Davis & Shirtliff and related pumping technology.",
+    body: "Solar pumping equipment and integrated pumping solutions for water supply applications.",
     cta: "Enquire about solar pumps",
   },
   {
@@ -770,7 +763,7 @@ export const products = [
   {
     id: "protection",
     title: "Electrical Protection & Balance of System",
-    body: "DC and AC protection, surge protection, isolators, distribution equipment, cables, connectors, earthing equipment and electrical accessories from brands such as Suntree and LEADER.",
+    body: "DC and AC protection, surge protection, isolators, distribution equipment, cables, connectors, earthing equipment and electrical accessories.",
     cta: "Enquire about protection equipment",
   },
 ] as const;
@@ -1165,38 +1158,32 @@ export const insights = [
 export const industries = [
   {
     title: "Commercial",
-    summary:
-      "Solar energy solutions and electrical engineering for offices, retail and mixed-use developments in Kenya.",
+    summary: "Offices, retail and mixed-use developments.",
     image: siteImages.rooftopSolarCrew,
   },
   {
     title: "Industrial",
-    summary:
-      "Industrial solar, critical power and electrical infrastructure for manufacturing, processing and warehousing in Kenya.",
+    summary: "Manufacturing, processing and warehousing.",
     image: siteImages.westernFresh,
   },
   {
     title: "Institutional",
-    summary:
-      "Solar, power systems and electrical safety for schools, universities and healthcare in Kenya.",
+    summary: "Schools, universities and healthcare.",
     image: siteImages.distributionBoardClosed,
   },
   {
     title: "Hospitality",
-    summary:
-      "Solar and electrical engineering for hotels, apartments and hospitality facilities in Kenya.",
+    summary: "Hotels, apartments and hospitality facilities.",
     image: siteImages.siteDriveInstall,
   },
   {
     title: "Infrastructure",
-    summary:
-      "Solar water pumping, electrical infrastructure and power systems for telecommunications and water utilities in Kenya.",
+    summary: "Telecommunications, water utilities and infrastructure.",
     image: siteImages.cablingThroughPit,
   },
   {
     title: "Public & Development",
-    summary:
-      "Engineering-led solar and electrical solutions for government, NGOs and development organisations in Kenya.",
+    summary: "Government, NGOs and development organisations.",
     image: siteImages.distributionBoardOpen,
   },
 ] as const;
@@ -1492,8 +1479,7 @@ export const socialLinks = [
 export const footerCapabilityLine =
   "Solar Energy | Critical Power | Electrical Engineering | Safety & Compliance | Maintenance | Consultancy";
 
-export const trustHeadline =
-  "Professional solar and electrical engineering in Kenya.";
+export const trustHeadline = "Professional. Compliant. Accountable.";
 
 export const trustNote =
   "Credentials and partnerships are shown only when current and accurately applicable. Contact us if you need documentation for a specific engagement.";

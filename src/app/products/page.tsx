@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageSeo, partnerBrandLine, products } from "@/lib/content";
+import { pageSeo, products } from "@/lib/content";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
@@ -33,14 +33,13 @@ export default function ProductsPage() {
               Products
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Solar equipment in Kenya
+              Quality equipment for engineered systems
             </h1>
             <p className="text-muted mt-4 text-pretty">
-              SM Solar & Electrical supplies and specifies solar panels,
-              inverters, batteries, pumps, mounting systems and electrical
-              protection according to project requirements. Brands we work with
-              include {partnerBrandLine}. This is an enquiry-led catalogue — not
-              an online shop.
+              We supply and specify solar panels, inverters, batteries, pumps,
+              mounting systems and electrical protection equipment according to
+              project requirements. This is an enquiry-led catalogue — not an
+              online shop.
             </p>
           </header>
 

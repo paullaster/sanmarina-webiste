@@ -42,12 +42,11 @@ export default function InsightsPage() {
               Insights
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              Solar and electrical engineering guidance in Kenya
+              Practical guidance for better power decisions
             </h1>
             <p className="text-muted mt-4 text-pretty">
               Technical articles on solar systems, battery storage, electrical
-              safety, commercial energy and engineering practice — written for
-              homeowners and businesses choosing energy solutions in Kenya.
+              safety, commercial energy and engineering practice.
             </p>
           </header>
 

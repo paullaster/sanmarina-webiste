@@ -24,14 +24,14 @@ export function FeaturedProjects() {
             id="projects-heading"
             className="font-display text-ink mt-3 text-[clamp(1.55rem,3.5vw,2.15rem)] font-bold tracking-tight text-balance"
           >
-            Solar and electrical projects in Kenya
+            Engineering you can see.
           </h2>
           <p
             id="projects-intro"
             className="text-muted mt-3 text-[clamp(0.95rem,2.2vw,1.05rem)] text-pretty"
           >
-            Selected solar, critical-power and electrical engineering projects —
-            from Kisumu and Migori to work across Kenya.
+            Our projects demonstrate our approach to practical, reliable and
+            professionally delivered energy systems.
           </p>
         </header>
 

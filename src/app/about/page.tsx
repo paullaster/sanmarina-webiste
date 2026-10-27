@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   aboutApproachSteps,
-  brandAliases,
   company,
   pageSeo,
   siteImages,
@@ -37,10 +36,10 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
           <div>
             <p className="font-display text-accent text-xs font-semibold tracking-[0.18em] uppercase">
-              San Marina · SM Engineering · SM Solar
+              About SM Solar & Electrical
             </p>
             <h1 className="font-display text-ink mt-3 text-[clamp(1.8rem,4.5vw,2.75rem)] font-bold tracking-tight text-balance">
-              San Marina Engineering — SM Engineering and SM Solar in Kenya
+              Engineering energy solutions with purpose
             </h1>
             <p className="text-muted mt-4 text-[clamp(1rem,2.2vw,1.125rem)] leading-relaxed text-pretty">
               {company.blurb}
@@ -48,21 +47,11 @@ export default function AboutPage() {
             <p className="text-muted mt-4 text-sm leading-relaxed text-pretty">
               Our work spans solar PV, battery energy storage, critical power,
               building electrical systems, electrical safety and compliance,
-              renewable-energy consultancy and operations and maintenance —
-              delivered as an engineering contractor, not a box-moving solar
-              shop.
+              renewable-energy consultancy and operations and maintenance.
             </p>
-            <p className="text-muted mt-4 text-sm leading-relaxed text-pretty">
-              If you searched San Marina, SM, SM Engineering, SM Solar or San
-              Marina Solar, you have the right company. Also known as{" "}
-              {brandAliases.join(", ")}. One legal entity: {company.name}.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact">Work with us</Button>
-              <Button href="/service-areas" variant="secondary">
-                Where we work in Kenya
-              </Button>
-            </div>
+            <Button href="/contact" className="mt-8">
+              Work with us
+            </Button>
           </div>
           <div className="border-border relative aspect-[4/3] overflow-hidden rounded-2xl border">
             <Image
@@ -80,7 +69,7 @@ export default function AboutPage() {
       <section className="safe-px section-y border-border border-y bg-white">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-ink text-[clamp(1.5rem,3.2vw,2rem)] font-bold tracking-tight text-balance">
-            Solar and electrical engineering in Kenya
+            More than installation. Engineering.
           </h2>
           <p className="text-muted mt-4 max-w-3xl text-sm leading-relaxed text-pretty">
             We believe that a successful energy project starts long before
@@ -102,7 +91,7 @@ export default function AboutPage() {
             id="about-approach-heading"
             className="font-display text-ink text-[clamp(1.5rem,3.2vw,2rem)] font-bold"
           >
-            Engineering-led solar and power approach
+            Our approach
           </h2>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {aboutApproachSteps.map((step, index) => (
@@ -125,7 +114,7 @@ export default function AboutPage() {
       <section className="safe-px section-y border-border border-y bg-white">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-ink text-2xl font-bold">
-            Why SM Engineering: quality, safety and integrity
+            Our commitment
           </h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {company.values.map((value) => (
@@ -145,7 +134,7 @@ export default function AboutPage() {
       <section className="safe-px section-y">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-ink text-2xl font-bold">
-            Solar, critical power and electrical engineering experience
+            Our experience
           </h2>
           <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed">
             SM Solar & Electrical benefits from the wider engineering experience
@@ -174,7 +163,7 @@ export default function AboutPage() {
             id="team-heading"
             className="font-display text-ink text-2xl font-bold"
           >
-            SM Engineering team behind your power systems
+            The people behind the power
           </h2>
           <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed text-pretty">
             Our team brings together expertise in electrical engineering,

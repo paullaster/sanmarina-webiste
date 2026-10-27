@@ -694,7 +694,6 @@ export function buildHomeJsonLd() {
           "@type": "SpeakableSpecification",
           cssSelector: [
             "#hero-heading",
-            "#snapshot-heading",
             "#solutions-heading",
             "#approach-heading",
             "#technology-heading",

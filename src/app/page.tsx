@@ -9,10 +9,8 @@ import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { FaqSection } from "@/components/FaqSection";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
-import { ServiceAreasPreview } from "@/components/ServiceAreas";
 import { SiteShell } from "@/components/SiteShell";
 import { Industries, SafetySection, WhyChoose } from "@/components/WhyChoose";
-import { CompanySnapshot } from "@/components/CompanySnapshot";
 import { Button } from "@/components/Button";
 import { pageSeo } from "@/lib/content";
 import { buildHomeJsonLd, buildPageMetadata, siteConfig } from "@/lib/seo";
@@ -33,7 +31,6 @@ export default function Home() {
     <SiteShell>
       <JsonLd data={buildHomeJsonLd()} />
       <Hero />
-      <CompanySnapshot />
       <Approach />
       <CapabilitiesOverview />
       <FeaturedProjects />
@@ -42,7 +39,6 @@ export default function Home() {
       <SafetySection />
       <TrustCredentials />
       <Industries />
-      <ServiceAreasPreview />
       <FaqSection />
 
       <section
@@ -54,7 +50,7 @@ export default function Home() {
             id="home-cta-heading"
             className="font-display text-[clamp(1.45rem,3.2vw,1.95rem)] font-bold tracking-tight text-balance"
           >
-            Talk to SM Engineering about solar and power in Kenya
+            Ready to build a better power system?
           </h2>
           <p className="mt-3 max-w-2xl text-pretty text-white/90">
             Whether you need solar for your home, backup power for your business

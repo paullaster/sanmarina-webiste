@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { kenyanServiceTowns, serviceRegions } from "@/lib/content";
+import { serviceRegions } from "@/lib/content";
 
 export function ServiceAreasPreview() {
   const featured = [
@@ -28,14 +28,12 @@ export function ServiceAreasPreview() {
             id="service-areas-heading"
             className="font-display text-ink mt-3 text-[clamp(1.5rem,3.2vw,2rem)] font-bold tracking-tight text-balance"
           >
-            Solar and engineering company serving Kenya
+            Based in Kisumu, working across Kenya
           </h2>
           <p className="text-muted mt-3 text-pretty">
-            SM Solar & Electrical is based in Kisumu and delivers solar energy
-            solutions, electrical contracting and engineering support in
-            Nairobi, Kisumu and towns nationwide — a practical partner whether
-            you searched for a solar company, an engineering company or a
-            contractor near you.
+            We deliver solar, electrical and energy projects from Kisumu to
+            sites nationwide. Contact us with your location and we will advise
+            on the practical next step.
           </p>
         </header>
 
@@ -59,7 +57,7 @@ export function ServiceAreasPreview() {
             href="/service-areas"
             className="text-accent text-sm font-semibold underline-offset-4 hover:underline"
           >
-            See all towns we serve in Kenya
+            See all towns we serve
           </Link>
         </p>
       </div>
@@ -94,10 +92,8 @@ export function ServiceAreasDirectory() {
         </section>
       ))}
       <p className="text-muted text-sm leading-relaxed text-pretty">
-        SM Solar & Electrical also supports projects in other Kenyan towns on
-        request. If your location is not listed, contact us — coverage is
-        national from our Kisumu office, including {kenyanServiceTowns.length}{" "}
-        named centres above.
+        If your town is not listed, contact us and we will advise on the
+        practical next step.
       </p>
     </div>
   );

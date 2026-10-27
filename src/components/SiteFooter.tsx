@@ -34,7 +34,7 @@ export function ContactSection() {
             id="contact-heading"
             className="font-display text-ink mt-3 text-[clamp(1.5rem,3.2vw,2rem)] font-bold tracking-tight text-balance"
           >
-            Talk to SM Engineering about solar and power in Kenya
+            Talk to an engineer.
           </h2>
           <p
             id="contact-intro"
@@ -161,7 +161,7 @@ export function SiteFooter() {
               className="font-display text-ink mt-4 text-base font-semibold"
               itemProp="name"
             >
-              San Marina Engineering Limited
+              {company.publicName}
             </h2>
             <p className="font-display text-accent mt-1 text-sm font-semibold">
               {company.tagline}
@@ -171,13 +171,6 @@ export function SiteFooter() {
               itemProp="description"
             >
               {footerCapabilityLine}
-            </p>
-            <p className="text-muted mt-3 text-xs leading-relaxed text-pretty">
-              San Marina Engineering Limited — also known as San Marina, SM, SM
-              Engineering, SM Solar, SM Solar Ltd, SM Solar Engineering and San
-              Marina Solar. Solar companies in Kenya, solar solutions and
-              engineering contractors serving Nairobi, Kisumu and towns
-              nationwide.
             </p>
           </div>
 
@@ -197,14 +190,6 @@ export function SiteFooter() {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <a
-                    href="/service-areas"
-                    className="text-muted hover:text-accent focus-visible:outline-accent inline-flex min-h-9 items-center text-sm underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                  >
-                    Where we work
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>
@@ -226,13 +211,6 @@ export function SiteFooter() {
                   itemProp="telephone"
                 >
                   {siteConfig.phoneDisplay}
-                </a>
-                <br />
-                <a
-                  href={`tel:${siteConfig.phoneAlt}`}
-                  className="hover:text-accent underline-offset-2 hover:underline"
-                >
-                  {siteConfig.phoneAltDisplay}
                 </a>
               </p>
               <p>

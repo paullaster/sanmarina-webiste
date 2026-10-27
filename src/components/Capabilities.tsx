@@ -26,15 +26,15 @@ export function CapabilitiesOverview() {
             id="solutions-heading"
             className="font-display text-ink mt-3 text-[clamp(1.55rem,3.5vw,2.15rem)] font-bold tracking-tight text-balance"
           >
-            Solar solutions, critical power and electrical engineering
+            Energy solutions designed around your needs
           </h2>
           <p
             id="solutions-intro"
             className="text-muted mt-3 text-[clamp(0.95rem,2.2vw,1.05rem)] text-pretty"
           >
-            Solar energy solutions, critical power, electrical engineering,
-            electrical safety and consultancy — for homes, businesses and
-            institutions in Kenya.
+            Solar, critical power, electrical engineering, safety and
+            consultancy — presented as clear paths for homes, businesses and
+            institutions.
           </p>
         </header>
 
@@ -86,7 +86,7 @@ export function Approach() {
             id="approach-heading"
             className="font-display text-ink mt-3 text-[clamp(1.55rem,3.5vw,2.15rem)] font-bold tracking-tight text-balance"
           >
-            Power systems engineered for your site
+            Power that is engineered for you
           </h2>
           <div
             id="approach-intro"
@@ -138,11 +138,7 @@ function PartnerLogo({
     <div className="border-border bg-bg-elevated flex h-full min-h-[5.25rem] items-center justify-center border px-4 py-3">
       <Image
         src={partner.logo}
-        alt={
-          decorative
-            ? ""
-            : `${partner.fullName} ${partner.category} specified and installed by SM Solar & Electrical in Kenya`
-        }
+        alt={decorative ? "" : partner.name}
         width={140}
         height={48}
         className="h-9 w-auto object-contain"
@@ -152,7 +148,7 @@ function PartnerLogo({
 }
 
 export function TechnologyTrust() {
-  const partnerNames = technologyPartners.map((partner) => partner.fullName);
+  const partnerNames = technologyPartners.map((partner) => partner.name);
 
   return (
     <section
@@ -161,26 +157,27 @@ export function TechnologyTrust() {
       aria-labelledby="technology-heading"
     >
       <div className="safe-px mx-auto max-w-6xl">
-        <header className="mx-auto max-w-3xl text-center">
+        <header className="mx-auto max-w-2xl text-center">
           <p className="font-display text-accent text-xs font-semibold tracking-[0.18em] uppercase">
-            Brands we trust
+            Technology we trust
           </p>
           <h2
             id="technology-heading"
             className="font-display text-ink mt-3 text-[clamp(1.45rem,3.2vw,1.95rem)] font-bold tracking-tight text-balance"
           >
-            Solar equipment brands we specify in Kenya
+            Established technology, selected for the application
           </h2>
           <p className="text-muted mt-3 text-pretty">
-            SM Solar & Electrical specifies and installs solar equipment from
-            established manufacturers according to project requirements — not a
-            one-brand push. Brands we work with include{" "}
-            {partnerNames.join(", ")}.
+            We work with established technology and equipment manufacturers
+            selected according to project requirements — not a one-brand push.
           </p>
         </header>
       </div>
 
       <div className="mt-8">
+        <p className="sr-only">
+          Technology partners: {partnerNames.join(", ")}
+        </p>
         <div className="partner-marquee" aria-hidden="true">
           <div className="partner-marquee-track">
             {[0, 1].map((copy) => (
@@ -205,7 +202,7 @@ export function TechnologyTrust() {
         <ul
           className="partner-logo-grid safe-px mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
           role="list"
-          aria-label="Solar equipment brands specified by SM Solar & Electrical"
+          aria-label="Technology partners"
         >
           {technologyPartners.map((partner) => (
             <li key={partner.id}>
