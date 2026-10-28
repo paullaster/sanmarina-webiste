@@ -213,12 +213,8 @@ export const navLinks: readonly NavItem[] = [
     ],
   },
   {
-    href: "/solar-packages",
-    label: "Solar Packages",
-    children: [
-      { href: "/solar-packages/home-plus", label: "Home Plus" },
-      { href: "/solar-packages/elite", label: "Elite" },
-    ],
+    href: "/shop",
+    label: "Our Shop",
   },
   { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
@@ -1421,9 +1417,9 @@ export const pageSeo = {
       "Solar equipment in Kenya from SM Engineering: Jinko, Trina, JA Solar, LONGi, Deye, Growatt, Dyness, Davis & Shirtliff and more — specified for engineered solar and power systems.",
   },
   packages: {
-    title: "5kW & 10kW Solar Packages Kenya | SM Engineering",
+    title: "Our Shop | Solar Products Kenya | SM Engineering",
     description:
-      "SM Engineering solar packages in Kenya: Home Plus 5kW and Elite 10kW hybrid systems. Call +254 717 411 822 or WhatsApp for a quotation in Kisumu, Nairobi and nationwide.",
+      "Browse solar panels, inverters, batteries and electrical products available from SM Engineering in Kenya.",
   },
   insights: {
     title: "Solar & Electrical Engineering Insights Kenya",

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Sora } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
+import { CartProvider } from "@/components/CartProvider";
 import { brandedSocialImages, ogImageAlt, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
@@ -155,9 +156,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${sora.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col overflow-x-hidden">
-        <SkipLink />
-        <JsonLd />
-        {children}
+        <CartProvider>
+          <SkipLink />
+          <JsonLd />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

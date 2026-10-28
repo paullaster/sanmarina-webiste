@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/solar-packages",
+      "destination": "/shop",
+      "permanent": true
+    },
+    {
+      "source": "/solar-packages/:slug",
+      "destination": "/shop",
+      "permanent": true
+    }
+  ]
+}

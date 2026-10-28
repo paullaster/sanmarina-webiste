@@ -5,6 +5,18 @@ import Link from "next/link";
 import { company, navLinks, type NavItem } from "@/lib/content";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/Button";
+import { useCart } from "@/components/CartProvider";
+
+const qsellOrigin = process.env.NEXT_PUBLIC_QSELL_API_URL?.replace(/\/$/, "");
+
+function cartPrice(price: number | undefined): string {
+  if (price === undefined || !Number.isFinite(price)) return "Price on request";
+  return new Intl.NumberFormat("en-KE", {
+    style: "currency",
+    currency: "KES",
+    maximumFractionDigits: 2,
+  }).format(price);
+}
 
 function DesktopNavItem({ link }: { link: NavItem }) {
   const [open, setOpen] = useState(false);
@@ -72,12 +84,23 @@ function DesktopNavItem({ link }: { link: NavItem }) {
 }
 
 export function SiteHeader() {
+  const { items, itemCount, removeFromCart, setQuantity, clearCart } =
+    useCart();
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const menuId = useId();
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const cartToggleRef = useRef<HTMLButtonElement>(null);
+  const cartPanelRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const checkoutHref =
+    qsellOrigin === undefined || items.length === 0
+      ? null
+      : `${qsellOrigin}/checkout?handoff=${encodeURIComponent(
+          JSON.stringify(items.map(({ id, quantity }) => ({ id, quantity }))),
+        )}`;
 
   const closeMenu = useCallback(() => {
     setOpen(false);
@@ -125,13 +148,38 @@ export function SiteHeader() {
     };
   }, [open, closeMenu]);
 
+  useEffect(() => {
+    if (!cartOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setCartOpen(false);
+      cartToggleRef.current?.focus();
+    };
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      const target = event.target;
+      if (
+        target instanceof Node &&
+        !cartPanelRef.current?.contains(target) &&
+        !cartToggleRef.current?.contains(target)
+      ) {
+        setCartOpen(false);
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsidePointer);
+    };
+  }, [cartOpen]);
+
   return (
     <header
       role="banner"
       className="border-border bg-bg-elevated/95 safe-px sticky top-0 z-40 border-b backdrop-blur-sm"
       style={{ boxShadow: "var(--header-shadow)" }}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 py-2.5 sm:py-3">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-3 py-2.5 sm:py-3">
         <Link
           href="/"
           className="focus-visible:outline-accent min-h-12 min-w-0 shrink rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
@@ -149,6 +197,36 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            ref={cartToggleRef}
+            aria-expanded={cartOpen}
+            aria-haspopup="dialog"
+            aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`}
+            className="border-accent text-accent hover:bg-bg-muted focus-visible:outline-accent relative inline-flex min-h-11 items-center gap-2 rounded-lg border-2 px-3 text-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            onClick={() => setCartOpen((value) => !value)}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H6"
+              />
+              <circle cx="10" cy="20" r="1" />
+              <circle cx="18" cy="20" r="1" />
+            </svg>
+            <span className="hidden sm:inline">Cart</span>
+            <span className="bg-accent inline-flex min-w-6 items-center justify-center rounded-full px-1.5 py-0.5 text-xs text-white tabular-nums">
+              {itemCount}
+            </span>
+          </button>
           <Button
             href="/contact"
             variant="secondary"
@@ -181,6 +259,128 @@ export function SiteHeader() {
             </span>
           </button>
         </div>
+
+        {cartOpen ? (
+          <div
+            aria-label="Shopping cart"
+            className="border-border bg-bg-elevated absolute top-full right-0 z-50 mt-2 max-h-[min(75vh,38rem)] w-[min(92vw,25rem)] overflow-y-auto rounded-lg border shadow-lg"
+            ref={cartPanelRef}
+            role="dialog"
+          >
+            <div className="border-border flex items-center justify-between border-b p-4">
+              <div>
+                <h2 className="font-display text-ink text-lg font-bold">
+                  Your cart
+                </h2>
+                <p className="text-muted text-xs" aria-live="polite">
+                  {itemCount} {itemCount === 1 ? "item" : "items"}
+                </p>
+              </div>
+              <button
+                aria-label="Close cart"
+                className="text-muted hover:text-ink border-border inline-flex min-h-10 min-w-10 items-center justify-center rounded-md border text-xl"
+                onClick={() => setCartOpen(false)}
+                type="button"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            {items.length === 0 ? (
+              <p className="text-muted p-5 text-sm">
+                Your cart is empty. Add products from Our Shop to get started.
+              </p>
+            ) : (
+              <>
+                <ul className="divide-border divide-y" role="list">
+                  {items.map((item) => (
+                    <li className="flex gap-3 p-4" key={item.id}>
+                      {item.imageUrl ? (
+                        // Product image URLs come from the public catalogue feed.
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          alt=""
+                          className="bg-bg-muted h-16 w-16 rounded object-cover"
+                          loading="lazy"
+                          src={item.imageUrl}
+                        />
+                      ) : null}
+                      <div className="min-w-0 flex-1">
+                        <p className="text-ink line-clamp-2 text-sm font-semibold">
+                          {item.name}
+                        </p>
+                        <p className="text-muted mt-1 text-xs">
+                          {cartPrice(item.price)} / {item.baseUnitName}
+                        </p>
+                        <div className="mt-2 flex items-center gap-2">
+                          <button
+                            aria-label={`Decrease ${item.name} quantity`}
+                            className="border-border inline-flex h-8 w-8 items-center justify-center rounded border text-base"
+                            onClick={() =>
+                              setQuantity(item.id, item.quantity - 1)
+                            }
+                            type="button"
+                          >
+                            −
+                          </button>
+                          <span
+                            aria-label={`Quantity ${item.quantity}`}
+                            className="min-w-6 text-center text-sm tabular-nums"
+                          >
+                            {item.quantity}
+                          </span>
+                          <button
+                            aria-label={`Increase ${item.name} quantity`}
+                            className="border-border inline-flex h-8 w-8 items-center justify-center rounded border text-base"
+                            onClick={() =>
+                              setQuantity(item.id, item.quantity + 1)
+                            }
+                            type="button"
+                          >
+                            +
+                          </button>
+                          <button
+                            className="text-accent ml-auto min-h-8 px-2 text-xs font-semibold underline underline-offset-2"
+                            onClick={() => removeFromCart(item.id)}
+                            type="button"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="border-border flex items-center justify-between border-t p-4">
+                  <button
+                    className="text-muted text-xs font-semibold underline underline-offset-2"
+                    onClick={clearCart}
+                    type="button"
+                  >
+                    Clear cart
+                  </button>
+                  {checkoutHref === null ? (
+                    <p className="text-muted max-w-40 text-right text-xs">
+                      Checkout is temporarily unavailable.
+                    </p>
+                  ) : (
+                    <a
+                      className="bg-accent hover:bg-accent-deep inline-flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold text-white"
+                      href={checkoutHref}
+                      onClick={() => {
+                        clearCart();
+                        setCartOpen(false);
+                      }}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Proceed to checkout
+                    </a>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+        ) : null}
       </div>
 
       <div

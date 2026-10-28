@@ -5,7 +5,6 @@ import {
   insights,
   serviceSlugs,
   siteImages,
-  solarPackages,
   solutionSlugs,
 } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
@@ -31,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services", priority: 0.9 },
     { path: "/projects", priority: 0.9 },
     { path: "/products", priority: 0.85 },
-    { path: "/solar-packages", priority: 0.85 },
+    { path: "/shop", priority: 0.85 },
     { path: "/insights", priority: 0.8 },
     { path: "/contact", priority: 0.95 },
   ];
@@ -62,12 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.75,
       images: [absoluteUrl(project.image.src)],
-    })),
-    ...solarPackages.map((pkg) => ({
-      url: absoluteUrl(`/solar-packages/${pkg.id}`),
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
     })),
     ...insights.map((insight) => ({
       url: absoluteUrl(`/insights/${insight.id}`),

@@ -7,7 +7,6 @@ import {
   partnerBrandNames,
   siteImages,
   socialLinks,
-  solarPackages,
   technologyPartners,
   topicKeywords,
 } from "@/lib/content";
@@ -444,23 +443,6 @@ function organizationNode() {
         availableLanguage: ["English", "Swahili"],
       },
     ],
-    makesOffer: solarPackages.map((pkg) => ({
-      "@type": "Offer",
-      "@id": `${url}/solar-packages/${pkg.id}#offer`,
-      name: `${pkg.name} ${pkg.capacity}`,
-      description: pkg.summary,
-      url: absoluteUrl(`/solar-packages/${pkg.id}`),
-      availability: "https://schema.org/InStock",
-      areaServed: "Kenya",
-      seller: { "@id": `${url}/#organization` },
-      itemOffered: {
-        "@type": "Product",
-        name: `${pkg.name} ${pkg.capacity}`,
-        description: pkg.summary,
-        brand: { "@id": `${url}/#organization` },
-        category: "Hybrid solar system",
-      },
-    })),
     sameAs: linkedIn ? [linkedIn] : [],
     priceRange: "$$",
     currenciesAccepted: "KES",
@@ -605,30 +587,6 @@ export function buildServiceJsonLd({
   };
 }
 
-export function buildPackageOfferJsonLd(pkg: {
-  id: string;
-  name: string;
-  capacity: string;
-  summary: string;
-}) {
-  return {
-    "@type": "Offer",
-    name: `${pkg.name} ${pkg.capacity}`,
-    description: pkg.summary,
-    url: absoluteUrl(`/solar-packages/${pkg.id}`),
-    availability: "https://schema.org/InStock",
-    areaServed: "Kenya",
-    seller: { "@id": `${siteConfig.url}/#organization` },
-    itemOffered: {
-      "@type": "Product",
-      name: `${pkg.name} ${pkg.capacity}`,
-      description: pkg.summary,
-      brand: { "@id": `${siteConfig.url}/#organization` },
-      category: "Hybrid solar system",
-    },
-  };
-}
-
 export function buildArticleJsonLd({
   title,
   description,
@@ -687,7 +645,7 @@ export function buildHomeJsonLd() {
           `${url}/projects`,
           `${url}/products`,
           `${url}/service-areas`,
-          `${url}/solar-packages`,
+          `${url}/shop`,
           `${url}/contact`,
         ],
         speakable: {
@@ -785,26 +743,12 @@ export function buildHomeJsonLd() {
       },
       {
         "@type": "ItemList",
-        "@id": `${url}/#packages-list`,
-        name: "SM Engineering solar packages in Kenya",
-        itemListOrder: "https://schema.org/ItemListOrderAscending",
-        numberOfItems: solarPackages.length,
-        itemListElement: solarPackages.map((pkg, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: `${pkg.name} ${pkg.capacity}`,
-          url: absoluteUrl(`/solar-packages/${pkg.id}`),
-          description: pkg.summary,
-        })),
-      },
-      {
-        "@type": "ItemList",
         "@id": `${url}/#sitelinks`,
         name: "SM Engineering site navigation",
         itemListElement: [
           { name: "Solar solutions", url: `${url}/solutions` },
           { name: "Engineering services", url: `${url}/services` },
-          { name: "Solar packages", url: `${url}/solar-packages` },
+          { name: "Our Shop", url: `${url}/shop` },
           { name: "Projects", url: `${url}/projects` },
           { name: "Contact SM Engineering", url: `${url}/contact` },
         ].map((item, index) => ({
