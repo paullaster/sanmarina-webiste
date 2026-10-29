@@ -46,7 +46,7 @@ export const siteConfig = {
   url: "https://www.sanmarina.engineering",
   locale: "en_KE",
   language: "en",
-  email: "sales@smsolar.co.ke",
+  email: "info@smsolar.co.ke",
   phone: "+254717411822",
   phoneDisplay: "+254 717 411 822",
   phoneAlt: "+254750411822",
