@@ -149,21 +149,25 @@ export function ProductCatalog() {
           {products.map((product) => (
             <li key={product.id}>
               <article className="brand-card flex h-full flex-col">
-                {product.imageUrl ? (
-                  // Product images are served by the external catalogue, so use a native image in this static site.
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    alt={product.name}
-                    className="bg-bg-muted aspect-[4/3] w-full object-cover"
-                    loading="lazy"
-                    src={product.imageUrl}
-                  />
-                ) : (
-                  <div
-                    aria-hidden="true"
-                    className="bg-bg-muted aspect-[4/3]"
-                  />
-                )}
+                <div className="relative aspect-square w-full overflow-hidden bg-white">
+                  {product.imageUrl ? (
+                    // The storefront uses contain so different product shapes remain fully visible.
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      alt={product.name}
+                      className="h-full w-full object-contain p-3"
+                      decoding="async"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      src={product.imageUrl}
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="bg-bg-muted absolute inset-3 rounded"
+                    />
+                  )}
+                </div>
                 <div className="flex flex-1 flex-col p-5">
                   <p className="font-display text-accent text-xs font-semibold tracking-[0.16em] uppercase">
                     {product.category || product.brand || "Solar product"}
