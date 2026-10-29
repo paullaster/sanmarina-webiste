@@ -1,9 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useCart } from "@/components/CartProvider";
 
-type StoreProduct = {
+export type StoreProduct = {
   id: string;
   name: string;
   description: string;
@@ -12,6 +13,7 @@ type StoreProduct = {
   price?: number;
   imageUrl: string;
   additionalImages?: string[];
+  specifications?: { key: string; value: string }[];
   stockQuantity: number;
   baseUnitName: string;
   slug: string;
@@ -148,8 +150,12 @@ export function ProductCatalog() {
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list">
           {products.map((product) => (
             <li key={product.id}>
-              <article className="brand-card flex h-full flex-col">
-                <div className="relative aspect-square w-full overflow-hidden bg-white">
+              <article className="brand-card relative flex h-full flex-col">
+                <Link
+                  aria-label={`View details for ${product.name}`}
+                  className="relative block aspect-square w-full overflow-hidden bg-white"
+                  href={`/shop/product?slug=${encodeURIComponent(product.slug)}`}
+                >
                   {product.imageUrl ? (
                     // The storefront uses contain so different product shapes remain fully visible.
                     // eslint-disable-next-line @next/next/no-img-element
@@ -167,13 +173,18 @@ export function ProductCatalog() {
                       className="bg-bg-muted absolute inset-3 rounded"
                     />
                   )}
-                </div>
+                </Link>
                 <div className="flex flex-1 flex-col p-5">
                   <p className="font-display text-accent text-xs font-semibold tracking-[0.16em] uppercase">
                     {product.category || product.brand || "Solar product"}
                   </p>
                   <h2 className="font-display text-ink mt-2 text-lg leading-snug font-bold">
-                    {product.name}
+                    <Link
+                      className="hover:text-accent focus-visible:outline-accent relative rounded-sm after:absolute after:inset-0 after:z-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                      href={`/shop/product?slug=${encodeURIComponent(product.slug)}`}
+                    >
+                      {product.name}
+                    </Link>
                   </h2>
                   <p className="text-muted mt-2 line-clamp-3 text-sm leading-relaxed">
                     {product.description}
@@ -187,12 +198,20 @@ export function ProductCatalog() {
                       : "Availability confirmed on enquiry"}
                   </p>
                   <div className="mt-auto grid gap-3 pt-5">
-                    <ProductCartActions
-                      onMessage={setCartMessage}
-                      product={product}
-                    />
+                    <Link
+                      className="border-border text-ink hover:bg-bg-muted relative z-10 inline-flex min-h-11 items-center justify-center rounded-md border px-4 text-sm font-semibold"
+                      href={`/shop/product?slug=${encodeURIComponent(product.slug)}`}
+                    >
+                      View product details
+                    </Link>
+                    <div className="relative z-10">
+                      <ProductCartActions
+                        onMessage={setCartMessage}
+                        product={product}
+                      />
+                    </div>
                     <a
-                      className="border-accent text-accent hover:bg-bg-muted inline-flex min-h-12 items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition-colors"
+                      className="border-accent text-accent hover:bg-bg-muted relative z-10 inline-flex min-h-12 items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition-colors"
                       href={`${apiBase}/product/${encodeURIComponent(product.slug)}`}
                       rel="noopener noreferrer"
                       target="_blank"
