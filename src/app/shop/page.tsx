@@ -29,7 +29,7 @@ export default function ShopPage() {
         </div>
       </section>
       <a
-        className="bg-accent hover:bg-accent-deep focus-visible:outline-accent fixed right-4 bottom-24 z-40 inline-flex min-h-12 items-center justify-center rounded-lg px-5 text-sm font-semibold text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:right-6 sm:bottom-6"
+        className="bg-accent hover:bg-accent-deep focus-visible:outline-accent fixed right-6 bottom-6 z-40 hidden min-h-12 items-center justify-center rounded-lg px-5 text-sm font-semibold text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:inline-flex"
         href="/contact?inquiry=product"
       >
         Create an inquiry

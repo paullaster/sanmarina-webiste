@@ -180,7 +180,7 @@ export function ProductCatalog() {
                   </p>
                   <h2 className="font-display text-ink mt-2 text-lg leading-snug font-bold">
                     <Link
-                      className="hover:text-accent focus-visible:outline-accent relative rounded-sm after:absolute after:inset-0 after:z-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                      className="hover:text-accent focus-visible:outline-accent rounded-sm after:absolute after:inset-0 after:z-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                       href={`/shop/product?slug=${encodeURIComponent(product.slug)}`}
                     >
                       {product.name}
@@ -197,13 +197,7 @@ export function ProductCatalog() {
                       ? `Available · sold per ${product.baseUnitName}`
                       : "Availability confirmed on enquiry"}
                   </p>
-                  <div className="mt-auto grid gap-3 pt-5">
-                    <Link
-                      className="border-border text-ink hover:bg-bg-muted relative z-10 inline-flex min-h-11 items-center justify-center rounded-md border px-4 text-sm font-semibold"
-                      href={`/shop/product?slug=${encodeURIComponent(product.slug)}`}
-                    >
-                      View product details
-                    </Link>
+                  <div className="relative z-10 mt-auto grid grid-cols-2 gap-2 pt-5">
                     <div className="relative z-10">
                       <ProductCartActions
                         onMessage={setCartMessage}
@@ -211,7 +205,7 @@ export function ProductCatalog() {
                       />
                     </div>
                     <a
-                      className="border-accent text-accent hover:bg-bg-muted relative z-10 inline-flex min-h-12 items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition-colors"
+                      className="border-accent text-accent hover:bg-bg-muted inline-flex min-h-12 min-w-0 items-center justify-center rounded-md border px-2 py-3 text-sm font-semibold transition-colors sm:px-5"
                       href={`${apiBase}/product/${encodeURIComponent(product.slug)}`}
                       rel="noopener noreferrer"
                       target="_blank"
@@ -275,7 +269,7 @@ function ProductCartActions({
   if (!cartItem) {
     return (
       <button
-        className="bg-accent hover:bg-accent-deep inline-flex min-h-12 items-center justify-center rounded-md px-5 py-3 text-sm font-semibold text-white transition-colors"
+        className="bg-accent hover:bg-accent-deep inline-flex min-h-12 w-full items-center justify-center rounded-md px-2 py-3 text-sm font-semibold text-white transition-colors sm:px-5"
         onClick={() => {
           add();
           onMessage(`${product.name} added to your cart.`);
@@ -288,12 +282,17 @@ function ProductCartActions({
   }
 
   return (
-    <div className="border-accent flex min-h-12 items-center justify-between rounded-md border-2 px-3">
-      <span className="text-accent text-sm font-semibold">In cart</span>
-      <div className="flex items-center gap-3">
+    <div
+      aria-label={`${cartItem.quantity} ${product.name} in cart`}
+      className="border-accent flex min-h-12 items-center justify-center rounded-md border-2 px-1 sm:px-2 md:justify-between"
+    >
+      <span className="text-accent hidden text-sm font-semibold md:inline">
+        In cart
+      </span>
+      <div className="flex items-center gap-0.5">
         <button
           aria-label={`Remove one ${product.name} from cart`}
-          className="text-accent border-border inline-flex h-9 w-9 items-center justify-center rounded-md border text-lg"
+          className="text-accent border-border inline-flex h-10 w-10 items-center justify-center rounded-md border text-lg"
           onClick={() => {
             setQuantity(product.id, cartItem.quantity - 1);
             onMessage(
@@ -308,13 +307,13 @@ function ProductCartActions({
         </button>
         <span
           aria-label={`${cartItem.quantity} ${product.name} in cart`}
-          className="text-ink min-w-5 text-center text-sm font-bold tabular-nums"
+          className="text-ink min-w-4 text-center text-sm font-bold tabular-nums"
         >
           {cartItem.quantity}
         </span>
         <button
           aria-label={`Add one ${product.name} to cart`}
-          className="bg-accent inline-flex h-9 w-9 items-center justify-center rounded-md text-lg text-white"
+          className="bg-accent inline-flex h-10 w-10 items-center justify-center rounded-md text-lg text-white"
           onClick={() => {
             add();
             onMessage(`Quantity updated for ${product.name}.`);

@@ -179,10 +179,10 @@ export function SiteHeader() {
       className="border-border bg-bg-elevated/95 safe-px sticky top-0 z-40 border-b backdrop-blur-sm"
       style={{ boxShadow: "var(--header-shadow)" }}
     >
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-3 py-2.5 sm:py-3">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-2 py-2.5 sm:gap-3 sm:py-3">
         <Link
           href="/"
-          className="focus-visible:outline-accent min-h-12 min-w-0 shrink rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="focus-visible:outline-accent min-h-12 min-w-0 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           aria-label={`${company.publicName} — home`}
         >
           <BrandLogo size="header" priority />
@@ -196,13 +196,13 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <button
             ref={cartToggleRef}
             aria-expanded={cartOpen}
             aria-haspopup="dialog"
             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`}
-            className="border-accent text-accent hover:bg-bg-muted focus-visible:outline-accent relative inline-flex min-h-11 items-center gap-2 rounded-lg border-2 px-3 text-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="border-accent text-accent hover:bg-bg-muted focus-visible:outline-accent relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 text-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:h-11 sm:w-auto sm:gap-2 sm:px-3"
             onClick={() => setCartOpen((value) => !value)}
             type="button"
           >
@@ -223,7 +223,7 @@ export function SiteHeader() {
               <circle cx="18" cy="20" r="1" />
             </svg>
             <span className="hidden sm:inline">Cart</span>
-            <span className="bg-accent inline-flex min-w-6 items-center justify-center rounded-full px-1.5 py-0.5 text-xs text-white tabular-nums">
+            <span className="bg-accent absolute -top-1 -right-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full px-1 text-[0.65rem] leading-none text-white tabular-nums sm:static sm:min-h-6 sm:min-w-6 sm:px-1.5 sm:py-0.5 sm:text-xs">
               {itemCount}
             </span>
           </button>
@@ -238,7 +238,7 @@ export function SiteHeader() {
           <button
             ref={toggleRef}
             type="button"
-            className="border-border text-ink focus-visible:outline-accent inline-flex h-11 w-11 items-center justify-center rounded-lg border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 xl:hidden"
+            className="border-border text-ink focus-visible:outline-accent ml-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 xl:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-haspopup="dialog"
