@@ -230,7 +230,7 @@ export function SiteHeader() {
           <Button
             href="/contact"
             variant="secondary"
-            className="hidden !min-h-10 !px-3 !py-2 !text-xs tracking-wide uppercase lg:inline-flex"
+            className="!hidden !min-h-10 !px-3 !py-2 !text-xs tracking-wide uppercase lg:!inline-flex"
             aria-label="Request a site assessment"
           >
             Request a site assessment
