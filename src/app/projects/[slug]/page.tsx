@@ -143,25 +143,33 @@ export default async function ProjectDetailPage({ params }: Props) {
             </aside>
           </div>
 
-          <div className="mx-auto mt-12 max-w-6xl">
-            <h2 className="font-display text-ink text-xl font-bold">Gallery</h2>
-            <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {project.gallery.map((image) => (
-                <li
-                  key={image.src}
-                  className="border-border relative aspect-[4/3] overflow-hidden rounded-xl border"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 50vw, 33vw"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          {project.gallery.length > 0 ? (
+            <div className="mx-auto mt-12 max-w-6xl">
+              <h2 className="font-display text-ink text-xl font-bold">
+                Gallery
+              </h2>
+              <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {project.gallery.map((image) => (
+                  <li
+                    key={image.src}
+                    className="border-border relative aspect-[4/3] overflow-hidden rounded-xl border"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 50vw, 33vw"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p className="text-muted mx-auto mt-12 max-w-6xl text-sm">
+              Photographs of this project are being added.
+            </p>
+          )}
         </div>
       </article>
     </SiteShell>

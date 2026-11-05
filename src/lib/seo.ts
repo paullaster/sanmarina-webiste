@@ -353,7 +353,7 @@ function organizationNode() {
     areaServed,
   } = siteConfig;
 
-  const logoUrl = absoluteUrl(brandLogo.src);
+  const logoUrl = absoluteUrl(brandLogo.webp);
   const ogImage = absoluteUrl("/og.png");
   const linkedIn = socialLinks.find((item) => item.label === "LinkedIn")?.href;
   const places = uniquePlaces(areaServed);

@@ -57,82 +57,140 @@ export const company = {
 } as const;
 
 export const brandLogo = {
-  src: "/brand/sm-solar-electrical.webp",
+  src: "/brand/sm-solar-electrical.avif",
+  webp: "/brand/sm-solar-electrical.webp",
   png: "/brand/sm-solar-electrical.png",
   alt: "SM Solar & Electrical — San Marina Engineering Limited",
   width: 800,
   height: 471,
 } as const;
 
+const projectImage = (path: string, alt: string) => ({
+  src: `/images/${path}.avif`,
+  alt,
+});
+
 export const siteImages = {
-  rooftopSolarCrew: {
-    src: "/images/edited/solar%20installation%20work.png",
-    alt: "SM Solar & Electrical crew installing a commercial rooftop solar array in Kenya",
-  },
-  westernFresh: {
-    src: "/images/edited/wefi%2011kw%20panel%20installations.png",
-    alt: "Western Fresh Industries facility in Kisumu with rooftop solar array",
-  },
-  westernFreshPanels: {
-    src: "/images/edited/wefi%2011kw%20panel%20installations%202.png",
-    alt: "Second view of the Western Fresh Industries rooftop solar installation",
-  },
-  westernFreshOffgrid: {
-    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power.png",
-    alt: "11 kW off-grid solar inverter and protection at Western Fresh Industries",
-  },
-  westernFreshOffgridWide: {
-    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power%202.png",
-    alt: "Installed off-grid solar power equipment at Western Fresh Industries",
-  },
-  distributionBoardOpen: {
-    src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "Open electrical distribution board showing busbars, meters and circuit protection",
-  },
-  distributionBoardWiring: {
-    src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "Interior of a commissioned distribution board with organised power wiring",
-  },
-  distributionBoardDetail: {
-    src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "Detail of an open multi-compartment distribution board",
-  },
-  distributionBoardClosed: {
-    src: "/images/edited/Zawadi%20Meter%20Box%20Outside%20view.png",
-    alt: "Closed distribution board with status indicator lights after installation",
-  },
-  siteDriveInstall: {
-    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power%202.png",
-    alt: "Industrial drive and protection equipment installed on site",
-  },
-  driveProtectionDetail: {
-    src: "/images/edited/Wefi%2011kW%20offgrid%20solar%20power.png",
-    alt: "Close view of installed drive controller and protection enclosure",
-  },
-  cablingThroughPit: {
-    src: "/images/edited/1mw%20solar%20cables.png",
-    alt: "Solar power cabling routed through an underground pit",
-  },
-  zawadiApartmentBuilding: {
-    src: "/images/edited/zawadi%20apartment%20building.png",
-    alt: "Zawadi Apartments residential building in Kisumu",
-  },
-  zawadiMeterBoxOutside: {
-    src: "/images/edited/Zawadi%20Meter%20Box%20Outside%20view.png",
-    alt: "Closed meter distribution board at Zawadi Apartments",
-  },
-  zawadiMeterBoxInside: {
-    src: "/images/edited/zawadi%20meter%20box%20inside.png",
-    alt: "Open meter distribution board at Zawadi Apartments",
-  },
-  transformerInspection: {
-    src: "/images/Transformer%20Inspection.png",
-    alt: "Technician inspecting an outdoor power transformer and distribution enclosure",
-  },
-  transformerInspectionDetail: {
-    src: "/images/edited/Transformer%20Insepction%202.png",
-    alt: "Inspection of transformer terminals, cooling fins and nameplate",
-  },
+  rooftopSolarCrew: projectImage(
+    "site/solar-installation-work",
+    "SM Solar & Electrical crew installing a commercial rooftop solar array in Kenya",
+  ),
+  westernFresh: projectImage(
+    "projects/western-fresh/cover-solar",
+    "Western Fresh Industries rooftop solar array beside the 11 kW off-grid drive and protection equipment",
+  ),
+  westernFreshElectrical: projectImage(
+    "projects/western-fresh/cover-electrical",
+    "Western Fresh Industries plant electrical equipment beside the rooftop solar array",
+  ),
+  westernFreshRoof: projectImage(
+    "projects/western-fresh/roof",
+    "Solar panels on the blue roof of the Western Fresh Industries facility",
+  ),
+  westernFreshDrive: projectImage(
+    "projects/western-fresh/drive",
+    "Drive and protection equipment mounted on the wall at Western Fresh Industries",
+  ),
+  distributionBoardOpen: projectImage(
+    "projects/zawadi/meter-box-inside",
+    "Open electrical distribution board showing busbars, meters and circuit protection",
+  ),
+  distributionBoardWiring: projectImage(
+    "projects/zawadi/meter-box-inside",
+    "Interior of a commissioned distribution board with organised power wiring",
+  ),
+  distributionBoardDetail: projectImage(
+    "projects/zawadi/meter-box-inside",
+    "Detail of an open multi-compartment distribution board",
+  ),
+  distributionBoardClosed: projectImage(
+    "projects/zawadi/meter-box-outside",
+    "Closed distribution board with status indicator lights after installation",
+  ),
+  siteDriveInstall: projectImage(
+    "projects/western-fresh/drive",
+    "Industrial drive and protection equipment installed on site",
+  ),
+  driveProtectionDetail: projectImage(
+    "projects/western-fresh/drive",
+    "Close view of installed drive controller and protection enclosure",
+  ),
+  cablingThroughPit: projectImage(
+    "site/solar-cables",
+    "Solar power cabling routed through an underground pit",
+  ),
+  zawadiCover: projectImage(
+    "projects/zawadi/cover",
+    "Zawadi Apartments building in Kisumu with its meter distribution boards, outside and inside",
+  ),
+  zawadiApartmentBuilding: projectImage(
+    "projects/zawadi/building",
+    "Zawadi Apartments residential building in Kisumu",
+  ),
+  zawadiMeterBoxOutside: projectImage(
+    "projects/zawadi/meter-box-outside",
+    "Closed meter distribution board at Zawadi Apartments",
+  ),
+  zawadiMeterBoxInside: projectImage(
+    "projects/zawadi/meter-box-inside",
+    "Open meter distribution board at Zawadi Apartments",
+  ),
+  kikuyuCover: projectImage(
+    "projects/kikuyu/cover",
+    "Collage of the Kikuyu 10 kW solar project: the panel array, the inverter and battery on the wall, and the SM crew at work",
+  ),
+  kikuyuArray: projectImage(
+    "projects/kikuyu/array",
+    "Solar panel array on a frame above a tiled roof at the Kikuyu project",
+  ),
+  kikuyuTeam: projectImage(
+    "projects/kikuyu/team",
+    "SM Solar & Electrical technicians commissioning the inverter at the Kikuyu project",
+  ),
+  kikuyuWiring: projectImage(
+    "projects/kikuyu/wiring",
+    "SM technician connecting the inverter and protection wiring at the Kikuyu project",
+  ),
+  kikuyuInverter: projectImage(
+    "projects/kikuyu/inverter",
+    "Hybrid inverter with protection boxes and battery cabinet on the wall at the Kikuyu project",
+  ),
+  kikuyuSummary: projectImage(
+    "projects/kikuyu/summary",
+    "Project summary card: 10 kW solar power system at Kikuyu, Kiambu County",
+  ),
+  ruakaCover: projectImage(
+    "projects/ruaka/cover",
+    "Collage of the Ruaka solar project: panels on the tiled roof and the inverter and battery indoors",
+  ),
+  ruakaRoof: projectImage(
+    "projects/ruaka/roof",
+    "Solar panels on a tiled roof with apartment blocks behind at the Ruaka project",
+  ),
+  ruakaArray: projectImage(
+    "projects/ruaka/array",
+    "Rows of solar panels fixed to the tiled roof at the Ruaka project",
+  ),
+  ruakaInverter: projectImage(
+    "projects/ruaka/inverter",
+    "10 kW inverter with stacked battery mounted on the wall at the Ruaka project",
+  ),
+  ruakaSummary: projectImage(
+    "projects/ruaka/summary",
+    "Project summary card: 5 kWp array, 10 kW inverter and 10.24 kWh battery at the Ruaka project",
+  ),
+  basangaInnCover: projectImage(
+    "projects/basanga-inn/cover",
+    "SM Solar & Electrical mark, shown until photographs of the Basanga Inn works are added",
+  ),
+  transformerInspection: projectImage(
+    "site/transformer-inspection",
+    "Technician inspecting an outdoor power transformer and distribution enclosure",
+  ),
+  transformerInspectionDetail: projectImage(
+    "site/transformer-terminals",
+    "Inspection of transformer terminals, cooling fins and nameplate",
+  ),
 } as const;
 
 export type NavChild = { href: string; label: string };
@@ -196,7 +254,6 @@ export const navLinks: readonly NavItem[] = [
     children: [
       { href: "/projects?filter=residential", label: "Residential" },
       { href: "/projects?filter=commercial", label: "Commercial" },
-      { href: "/projects?filter=pumping", label: "Solar Pumping" },
       { href: "/projects?filter=electrical", label: "Electrical Projects" },
     ],
   },
@@ -359,10 +416,59 @@ export const capabilities = homeSolutions.map((item, index) => ({
 
 export const featuredProjects = [
   {
+    id: "kikuyu-project",
+    title: "Kikuyu Solar Project",
+    location: "Kikuyu, Kiambu County",
+    category: "Residential Solar",
+    sector: "Residential",
+    filter: "residential" as const,
+    capacity: "10 kW",
+    role: "Solar PV, hybrid inverter and battery installation",
+    summary: "A 10 kW solar power system at a home in Kikuyu, Kiambu County.",
+    requirement: "A residential solar installation in Kikuyu, Kiambu County.",
+    approach:
+      "A 10 kW solar power system with a hybrid inverter and lithium-ion battery, installed by SM Solar & Electrical.",
+    result: "A 10 kW solar power system at a home in Kikuyu, Kiambu County.",
+    image: siteImages.kikuyuCover,
+    gallery: [
+      siteImages.kikuyuArray,
+      siteImages.kikuyuInverter,
+      siteImages.kikuyuTeam,
+      siteImages.kikuyuWiring,
+      siteImages.kikuyuSummary,
+    ],
+    featured: true,
+  },
+  {
+    id: "ruaka-project",
+    title: "Ruaka Solar Project",
+    location: "Ruaka, Kiambu County",
+    category: "Residential Solar",
+    sector: "Residential",
+    filter: "residential" as const,
+    capacity: "5 kWp",
+    role: "Solar PV, hybrid inverter and battery installation",
+    summary:
+      "A 5 kWp solar array with a 10 kW inverter and 10.24 kWh battery at a home in Ruaka.",
+    requirement: "A residential solar installation in Ruaka, Kiambu County.",
+    approach:
+      "A 5 kWp roof array with a 10 kW inverter and a 10.24 kWh battery, installed by SM Solar & Electrical.",
+    result:
+      "A 5 kWp solar array with a 10 kW inverter and 10.24 kWh battery at a home in Ruaka.",
+    image: siteImages.ruakaCover,
+    gallery: [
+      siteImages.ruakaRoof,
+      siteImages.ruakaArray,
+      siteImages.ruakaInverter,
+      siteImages.ruakaSummary,
+    ],
+    featured: true,
+  },
+  {
     id: "western-fresh-industries",
     title: "Western Fresh Industries",
     location: "Kisumu, Kenya",
-    category: "Commercial Solar & Electrical Works",
+    category: "Commercial Solar",
     sector: "Commercial",
     filter: "commercial" as const,
     capacity: "33 kWp",
@@ -376,124 +482,71 @@ export const featuredProjects = [
     result:
       "A professionally delivered commercial solar installation designed to support the facility's energy requirements while reducing reliance on grid electricity.",
     image: siteImages.westernFresh,
-    gallery: [
-      siteImages.westernFresh,
-      siteImages.westernFreshPanels,
-      siteImages.westernFreshOffgrid,
-      siteImages.westernFreshOffgridWide,
-    ],
+    gallery: [siteImages.westernFreshRoof, siteImages.westernFreshDrive],
     featured: true,
   },
   {
-    id: "tatu-city",
-    title: "Tatu City — Solar Project",
-    location: "Kenya",
-    category: "Large-scale commercial solar",
+    id: "western-fresh-industries-electrical",
+    title: "Western Fresh Industries: Plant Electrical",
+    location: "Kisumu, Kenya",
+    category: "Electrical Installation",
     sector: "Commercial",
-    filter: "commercial" as const,
-    capacity: "1.2 MW",
-    role: "Solar project supervision",
+    filter: "electrical" as const,
+    capacity: undefined,
+    role: "Design and installation of the plant electrical system",
     summary:
-      "Large-scale commercial solar project with San Marina providing project supervision.",
-    requirement:
-      "A large-scale commercial solar programme requiring disciplined project supervision.",
+      "Design and installation of the plant electrical system, lighting, power and CCTV at Western Fresh Industries.",
+    requirement: "Electrical works at Western Fresh Industries.",
     approach:
-      "San Marina provided solar project supervision to support professional delivery of the works.",
+      "Design and installation of the plant electrical system, lighting, power and CCTV.",
     result:
-      "Supervised delivery aligned to the project's commercial solar scope.",
-    image: siteImages.rooftopSolarCrew,
-    gallery: [siteImages.rooftopSolarCrew, siteImages.cablingThroughPit],
+      "The plant electrical system, lighting, power and CCTV at Western Fresh Industries.",
+    image: siteImages.westernFreshElectrical,
+    gallery: [siteImages.westernFreshDrive, siteImages.westernFreshRoof],
     featured: true,
+  },
+  {
+    id: "basanga-inn",
+    title: "Basanga Inn",
+    location: "Kenya",
+    category: "Hospitality Electrical Installation",
+    sector: "Hospitality",
+    filter: "electrical" as const,
+    capacity: undefined,
+    role: "Electrical design and installation",
+    summary:
+      "Electrical design and installation for lighting, power, CCTV, data and TV at Basanga Inn.",
+    requirement: "Electrical works at Basanga Inn.",
+    approach:
+      "Electrical design and installation for lighting, power, CCTV, data and TV.",
+    result:
+      "Electrical design and installation for lighting, power, CCTV, data and TV at Basanga Inn.",
+    image: siteImages.basangaInnCover,
+    gallery: [],
+    featured: false,
   },
   {
     id: "zawadi-apartments",
     title: "Zawadi Apartments",
     location: "Kisumu, Kenya",
-    category: "Residential / Apartment Solar",
+    category: "Residential Electrical Installation",
     sector: "Residential",
-    filter: "residential" as const,
+    filter: "electrical" as const,
     capacity: undefined,
-    role: "Solar energy solution",
+    role: "Electrical design and installation",
     summary:
-      "Solar energy solution for a residential / apartment development in Kisumu.",
-    requirement:
-      "The apartments needed a practical solar energy solution suited to residential/apartment loads.",
+      "Electrical design and installation for lighting, power, CCTV, data, TV and electrical fence at Zawadi Apartments.",
+    requirement: "Electrical works at Zawadi Apartments.",
     approach:
-      "San Marina delivered a solar energy solution aligned to the apartment project's requirements.",
+      "Electrical design and installation for lighting, power, CCTV, data, TV and electrical fence.",
     result:
-      "A solar energy solution supporting the residential / apartment application in Kisumu.",
-    image: siteImages.zawadiApartmentBuilding,
+      "Electrical design and installation for lighting, power, CCTV, data, TV and electrical fence at Zawadi Apartments.",
+    image: siteImages.zawadiCover,
     gallery: [
       siteImages.zawadiApartmentBuilding,
       siteImages.zawadiMeterBoxOutside,
       siteImages.zawadiMeterBoxInside,
     ],
-    featured: true,
-  },
-  {
-    id: "15kw-poultry-solar",
-    title: "15 kW Poultry Hybrid Solar System",
-    location: "Migori, Kenya",
-    category: "Hybrid Solar",
-    sector: "Agricultural",
-    filter: "commercial" as const,
-    capacity: "15 kW",
-    role: "Hybrid solar system delivery",
-    summary:
-      "15 kW hybrid solar system supporting poultry operations in Migori.",
-    requirement:
-      "A poultry operation required hybrid solar capacity to support reliable power for production.",
-    approach:
-      "San Marina delivered a 15 kW hybrid solar system sized for the application's operational needs.",
-    result:
-      "A hybrid solar installation supporting poultry operations in Migori.",
-    image: siteImages.siteDriveInstall,
-    gallery: [siteImages.siteDriveInstall, siteImages.rooftopSolarCrew],
-    featured: true,
-  },
-  {
-    id: "basangas-inn",
-    title: "Basangas Inn",
-    location: "Kenya",
-    category: "Hospitality / Building Electrical & Energy Works",
-    sector: "Hospitality",
-    filter: "electrical" as const,
-    capacity: undefined,
-    role: "Electrical and energy-related project works",
-    summary:
-      "Electrical and energy-related project works for a hospitality facility.",
-    requirement:
-      "The hospitality facility required electrical and energy-related project works.",
-    approach:
-      "San Marina delivered electrical and energy-related works suited to hospitality operations.",
-    result:
-      "Completed electrical and energy-related project works for Basangas Inn.",
-    image: siteImages.distributionBoardWiring,
-    gallery: [
-      siteImages.distributionBoardWiring,
-      siteImages.distributionBoardClosed,
-    ],
-    featured: true,
-  },
-  {
-    id: "solar-water-pumping",
-    title: "Solar Water Pumping Projects",
-    location: "Kenya",
-    category: "Solar Water Pumping",
-    sector: "Infrastructure",
-    filter: "pumping" as const,
-    capacity: undefined,
-    role: "Solar pumping system design and delivery",
-    summary:
-      "Solar-powered water pumping systems for domestic, agricultural, institutional and commercial applications.",
-    requirement:
-      "Clients needed water pumping solutions designed around borehole characteristics, demand, head and storage.",
-    approach:
-      "We design solar pumping systems around borehole characteristics, water demand, pumping head, storage requirements and available solar resource.",
-    result:
-      "Practical solar pumping solutions for domestic, agricultural, institutional and commercial water supply.",
-    image: siteImages.cablingThroughPit,
-    gallery: [siteImages.cablingThroughPit, siteImages.siteDriveInstall],
     featured: true,
   },
 ] as const;
@@ -771,133 +824,133 @@ export const technologyPartners = [
     name: "Jinko",
     fullName: "Jinko Solar",
     category: "solar panels",
-    logo: "/images/partners/jinko.webp",
+    logo: "/images/partners/jinko.avif",
   },
   {
     id: "trina",
     name: "Trina",
     fullName: "Trina Solar",
     category: "solar panels",
-    logo: "/images/partners/trina.webp",
+    logo: "/images/partners/trina.avif",
   },
   {
     id: "ja",
     name: "JA",
     fullName: "JA Solar",
     category: "solar panels",
-    logo: "/images/partners/ja.webp",
+    logo: "/images/partners/ja.avif",
   },
   {
     id: "longi",
     name: "Longi",
     fullName: "LONGi Solar",
     category: "solar panels",
-    logo: "/images/partners/longi.webp",
+    logo: "/images/partners/longi.avif",
   },
   {
     id: "srne",
     name: "SRNE",
     fullName: "SRNE",
     category: "inverters",
-    logo: "/images/partners/srne.webp",
+    logo: "/images/partners/srne.avif",
   },
   {
     id: "solis",
     name: "Solis",
     fullName: "Solis",
     category: "inverters",
-    logo: "/images/partners/solis.webp",
+    logo: "/images/partners/solis.avif",
   },
   {
     id: "deye",
     name: "Deye",
     fullName: "Deye",
     category: "hybrid inverters",
-    logo: "/images/partners/deye.webp",
+    logo: "/images/partners/deye.avif",
   },
   {
     id: "growatt",
     name: "Growatt",
     fullName: "Growatt",
     category: "inverters",
-    logo: "/images/partners/growatt.webp",
+    logo: "/images/partners/growatt.avif",
   },
   {
     id: "renergy",
     name: "Renergy",
     fullName: "Renergy",
     category: "inverters",
-    logo: "/images/partners/renergy.webp",
+    logo: "/images/partners/renergy.avif",
   },
   {
     id: "huawei",
     name: "Huawei",
     fullName: "Huawei",
     category: "inverters",
-    logo: "/images/partners/huawei.webp",
+    logo: "/images/partners/huawei.avif",
   },
   {
     id: "tbb-power",
     name: "TBB Power",
     fullName: "TBB Power",
     category: "inverters",
-    logo: "/images/partners/tbb-power.webp",
+    logo: "/images/partners/tbb-power.avif",
   },
   {
     id: "dyness",
     name: "Dyness",
     fullName: "Dyness",
     category: "battery storage",
-    logo: "/images/partners/dyness.webp",
+    logo: "/images/partners/dyness.avif",
   },
   {
     id: "davis-and-shirtliff",
     name: "Davis & Shirtliff",
     fullName: "Davis & Shirtliff",
     category: "solar pumping",
-    logo: "/images/partners/davis-and-shirtliff.webp",
+    logo: "/images/partners/davis-and-shirtliff.avif",
   },
   {
     id: "maqbul",
     name: "MAQBUL",
     fullName: "MAQBUL",
     category: "solar equipment",
-    logo: "/images/partners/maqbul.webp",
+    logo: "/images/partners/maqbul.avif",
   },
   {
     id: "veichi",
     name: "Veichi",
     fullName: "Veichi",
     category: "drives",
-    logo: "/images/partners/veichi.webp",
+    logo: "/images/partners/veichi.avif",
   },
   {
     id: "megasun",
     name: "Megasun",
     fullName: "Megasun",
     category: "solar water heating",
-    logo: "/images/partners/megasun.webp",
+    logo: "/images/partners/megasun.avif",
   },
   {
     id: "aquaheat",
     name: "AquaHeat",
     fullName: "AquaHeat",
     category: "solar water heating",
-    logo: "/images/partners/aquaheat.webp",
+    logo: "/images/partners/aquaheat.avif",
   },
   {
     id: "suntree",
     name: "Suntree",
     fullName: "Suntree",
     category: "electrical protection",
-    logo: "/images/partners/suntree.webp",
+    logo: "/images/partners/suntree.avif",
   },
   {
     id: "leader",
     name: "LEADER",
     fullName: "LEADER",
     category: "electrical protection",
-    logo: "/images/partners/leader.webp",
+    logo: "/images/partners/leader.avif",
   },
 ] as const;
 

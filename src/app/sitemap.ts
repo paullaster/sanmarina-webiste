@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     absoluteUrl("/og.png"),
     absoluteUrl("/og-square.png"),
     absoluteUrl("/twitter-image.png"),
-    absoluteUrl(brandLogo.src),
+    absoluteUrl(brandLogo.webp),
     absoluteUrl(brandLogo.png),
     ...Object.values(siteImages).map((image) => absoluteUrl(image.src)),
   ];

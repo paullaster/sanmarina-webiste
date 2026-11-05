@@ -9,7 +9,6 @@ const filters = [
   { id: "all", label: "All projects" },
   { id: "residential", label: "Residential" },
   { id: "commercial", label: "Commercial" },
-  { id: "pumping", label: "Solar pumping" },
   { id: "electrical", label: "Electrical projects" },
 ] as const;
 
