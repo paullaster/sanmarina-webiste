@@ -161,15 +161,11 @@ export const siteImages = {
   ),
   ruakaCover: projectImage(
     "projects/ruaka/cover",
-    "Collage of the Ruaka solar project: panels on the tiled roof and the inverter and battery indoors",
-  ),
-  ruakaRoof: projectImage(
-    "projects/ruaka/roof",
-    "Solar panels on a tiled roof with apartment blocks behind at the Ruaka project",
+    "Collage of the Ruaka solar project: panels on the tiled roof and the 10 kW inverter on the wall",
   ),
   ruakaArray: projectImage(
     "projects/ruaka/array",
-    "Rows of solar panels fixed to the tiled roof at the Ruaka project",
+    "Solar panels on the tiled roof at the Ruaka project",
   ),
   ruakaInverter: projectImage(
     "projects/ruaka/inverter",
@@ -178,6 +174,22 @@ export const siteImages = {
   ruakaSummary: projectImage(
     "projects/ruaka/summary",
     "Project summary card: 5 kWp array, 10 kW inverter and 10.24 kWh battery at the Ruaka project",
+  ),
+  kitengelaCover: projectImage(
+    "projects/kitengela/cover",
+    "Collage of the Kitengela solar project: panels on the roof beside a tall building, and the inverters and batteries on the wall",
+  ),
+  kitengelaRoof: projectImage(
+    "projects/kitengela/roof",
+    "Solar panels on the roof beside a tall building at the Kitengela project",
+  ),
+  kitengelaInverters: projectImage(
+    "projects/kitengela/inverters",
+    "Solis inverters with protection boxes and conduit on the wall at the Kitengela project",
+  ),
+  kitengelaBatteries: projectImage(
+    "projects/kitengela/batteries",
+    "Stacked battery units mounted below the inverters at the Kitengela project",
   ),
   basangaInnCover: projectImage(
     "projects/basanga-inn/cover",
@@ -457,10 +469,33 @@ export const featuredProjects = [
       "A 5 kWp solar array with a 10 kW inverter and 10.24 kWh battery at a home in Ruaka.",
     image: siteImages.ruakaCover,
     gallery: [
-      siteImages.ruakaRoof,
       siteImages.ruakaArray,
       siteImages.ruakaInverter,
       siteImages.ruakaSummary,
+    ],
+    featured: true,
+  },
+  {
+    id: "kitengela-project",
+    title: "Kitengela Solar Project",
+    location: "Kitengela, Kajiado County",
+    category: "Commercial Solar",
+    sector: "Commercial",
+    filter: "commercial" as const,
+    capacity: "24 kWp",
+    role: "Solar PV, inverter and battery installation",
+    summary:
+      "A 24 kWp solar power system with 24 kW of inverters and a 40 kWh battery in Kitengela, Kajiado County.",
+    requirement: "A solar installation in Kitengela, Kajiado County.",
+    approach:
+      "A 24 kWp array with a 24 kW inverter and a 40 kWh battery, installed by SM Solar & Electrical.",
+    result:
+      "A 24 kW solar power system with 40 kWh of battery storage in Kitengela, Kajiado County.",
+    image: siteImages.kitengelaCover,
+    gallery: [
+      siteImages.kitengelaRoof,
+      siteImages.kitengelaInverters,
+      siteImages.kitengelaBatteries,
     ],
     featured: true,
   },

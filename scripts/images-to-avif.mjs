@@ -20,9 +20,12 @@ const photos = [
   [path.join(SOURCE, NEW("14.03.05")), "projects/kikuyu/summary.avif", 1600],
   // Ruaka: 5 kWp array, 10 kW inverter, 10.24 kWh battery
   [path.join(SOURCE, NEW("10.40.24")), "projects/ruaka/summary.avif", 1600],
-  [path.join(SOURCE, WA(13)), "projects/ruaka/roof.avif", 1600],
   [path.join(SOURCE, WA(14)), "projects/ruaka/array.avif", 1600],
   [path.join(SOURCE, WA(15)), "projects/ruaka/inverter.avif", 1600],
+  // Kitengela, Kajiado County: 24 kWp array, 24 kW inverter, 40 kWh battery
+  [path.join(SOURCE, WA(13)), "projects/kitengela/roof.avif", 1600],
+  [path.join(SOURCE, WA(11)), "projects/kitengela/inverters.avif", 1600],
+  [path.join(SOURCE, WA(12)), "projects/kitengela/batteries.avif", 1600],
   // Western Fresh Industries
   [
     path.join(SOURCE, "wefi 11kw panel installations cropped.png"),

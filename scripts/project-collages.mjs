@@ -42,6 +42,22 @@ async function threeUp(out, big, top, bottom) {
   console.log(`${out}  ${(info.size / 1024).toFixed(0)} KB`);
 }
 
+// Two photos: a wide one beside a narrower one.
+async function twoUp(out, wide, narrow) {
+  const left = Math.round(W * 0.64);
+  const right = W - left - GAP;
+  const info = await sharp({
+    create: { width: W, height: H, channels: 3, background: "#ffffff" },
+  })
+    .composite([
+      { input: await tile(wide, left, H), left: 0, top: 0 },
+      { input: await tile(narrow, right, H), left: left + GAP, top: 0 },
+    ])
+    .avif({ quality: 55, effort: 4 })
+    .toFile(out);
+  console.log(`${out}  ${(info.size / 1024).toFixed(0)} KB`);
+}
+
 // A project with no photos yet: the company mark on a plain ground, so nothing from another project is shown.
 async function placeholder(out) {
   const mark = await sharp("public/brand/sm-solar-electrical.png")
@@ -56,27 +72,20 @@ async function placeholder(out) {
   console.log(`${out}  ${(info.size / 1024).toFixed(0)} KB`);
 }
 
-if (process.env.ALL === "1")
-  await threeUp(
-    "public/images/projects/kikuyu/cover.avif",
-    WA(20),
-    WA(9),
-    WA(7),
-  );
-if (process.env.ALL === "1")
-  await threeUp(
-    "public/images/projects/ruaka/cover.avif",
-    WA(14),
-    WA(13),
-    WA(15),
-  );
-if (process.env.ALL === "1")
-  await threeUp(
-    "public/images/projects/zawadi/cover.avif",
-    "assets-src/site/zawadi apartment building.png",
-    "assets-src/site/Zawadi Meter Box Outside view.png",
-    "assets-src/site/zawadi meter box inside.png",
-  );
+await threeUp("public/images/projects/kikuyu/cover.avif", WA(20), WA(9), WA(7));
+await twoUp("public/images/projects/ruaka/cover.avif", WA(14), WA(15));
+await threeUp(
+  "public/images/projects/kitengela/cover.avif",
+  WA(13),
+  WA(11),
+  WA(12),
+);
+await threeUp(
+  "public/images/projects/zawadi/cover.avif",
+  "assets-src/site/zawadi apartment building.png",
+  "assets-src/site/Zawadi Meter Box Outside view.png",
+  "assets-src/site/zawadi meter box inside.png",
+);
 
 // Western Fresh: the roof photo is a small wide strip, so it is cropped to the roof itself and shown as a band, with the
 // drive and protection equipment as a second band. Stacked, neither photo loses what it is meant to show.
